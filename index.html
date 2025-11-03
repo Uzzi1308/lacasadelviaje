@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barrancas del Cobre - La Casa del Viaje</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="https://lacasadelviaje.com.mx/" class="logo" target="_blank" id="container-logo-nav">
+        <img src="https://lacasadelviaje.com.mx/wp-content/uploads/2024/10/LCDV-logo-white-01.png" alt="" id="logo-img-nav">
+
+        <!-- <p>La Casa del Viaje</p> -->
+      </a>
+      <ul class="nav-links">
+        <li><a href="#destinos">Destinos</a></li>
+        <li><a href="#itinerario">Itinerario</a></li>
+        <li><a href="#testimonios">Testimonios</a></li>
+        <li><a href="https://lacasadelviaje.com.mx/">Inicio</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>BARRANCAS <br>
+          DEL COBRE</h1>
+
+        <p>Vive tu mejor experiencia con nosotros.</p>
+      </div>
+      <div class="form-container">
+        <h3>Reserva tu Aventura</h3>
+
+        <form id="bookingForm">
+          <div class="form-group">
+            <label>Nombre Completo</label>
+
+            <input type="text" required placeholder="Juan Pérez">
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+
+            <input type="email" required placeholder="tu@email.com">
+          </div>
+
+          <div class="form-group">
+            <label>Teléfono</label>
+
+            <input type="tel" required placeholder="(123) 456-7890">
+          </div>
+
+          <div class="form-group">
+            <label>Número de Viajeros</label>
+
+            <select required>
+              <option value="">Selecciona</option>
+              <option value="1">1 persona</option>
+              <option value="2">2 personas</option>
+              <option value="3">3 personas</option>
+              <option value="4">4 personas</option>
+              <option value="5+">5+ personas</option>
+            </select>
+          </div>
+
+          <!-- <div class="form-group">
+            <label>Fecha Preferida</label>
+
+            <input type="date" required>
+          </div> -->
+
+          <button type="submit" class="btn-submit">Solicitar Información</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Sección Experiencia -->
+<section class="experience-section">
+  <div class="experience-container">
+    <div class="experience-content">
+      <h2 class="experience-title">
+        Vive la grandeza del Cañón más espectacular de México con todo planeado por expertos.
+      </h2>
+      <p class="experience-description">
+        Disfruta un viaje sin estrés: alojamiento, transporte, y las mejores vistas del tren Chepe incluidos. ¡Sólo preocúpate por disfrutar cada amanecer sobre las Barrancas del Cobre!
+      </p>
+      <ul class="experience-features">
+        <li>Paquetes personalizados según temporada</li>
+        <li>Atención local y guías certificados</li>
+        <li>Experiencia auténtica con comunidades tarahumaras</li>
+      </ul>
+    </div>
+    <div class="experience-image-wrapper">
+      <div class="experience-badge">
+        <div class="badge-years">+30 años</div>
+        <div class="badge-text">de experiencia</div>
+      </div>
+      <div class="experience-image">
+        <img src="img/jóvenes.png" alt="Aventura en Barrancas del Cobre">
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Itinerario Carousel -->
+  <section class="itinerary" id="itinerario">
+    <h2 class="section-title">Itinerario de 5 Días</h2>
+    <p style="text-align: center; color: #666; margin-bottom: 3rem; font-size: 1.1rem;">Arrastra para conocer cada día
+      de tu aventura</p>
+
+    <div class="swiper itinerarySwiper">
+      <div class="swiper-wrapper">
+        <!-- Día 1 -->
+        <div class="swiper-slide">
+          <div class="itinerary-card">
+            <img src="https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800" alt="Chihuahua">
+            <div class="itinerary-content">
+              <span class="day-badge">Día 1</span>
+              <h3>Llegada a Chihuahua</h3>
+              <ul>
+                <li>Recepción en el aeropuerto</li>
+                <li>Traslado al hotel en Chihuahua</li>
+                <li>Tour panorámico por la ciudad</li>
+                <li>Cena de bienvenida</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Día 2 -->
+        <div class="swiper-slide">
+          <div class="itinerary-card">
+            <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=800" alt="Tren El Chepe">
+            <div class="itinerary-content">
+              <span class="day-badge">Día 2</span>
+              <h3>El Chepe & Divisadero</h3>
+              <ul>
+                <li>Viaje en el tren El Chepe</li>
+                <li>Parada en el mirador Divisadero</li>
+                <li>Almuerzo con vista a las barrancas</li>
+                <li>Tirolesa opcional</li>
+                <li>Alojamiento en hotel de montaña</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Día 3 -->
+        <div class="swiper-slide">
+          <div class="itinerary-card">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800" alt="Valle de los Hongos">
+            <div class="itinerary-content">
+              <span class="day-badge">Día 3</span>
+              <h3>Creel y Valle de los Hongos</h3>
+              <ul>
+                <li>Visita al pueblo mágico de Creel</li>
+                <li>Exploración del Valle de los Hongos</li>
+                <li>Lago de Arareko</li>
+                <li>Interacción con comunidad Rarámuri</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Día 4 -->
+        <div class="swiper-slide">
+          <div class="itinerary-card">
+            <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800" alt="Cascada">
+            <div class="itinerary-content">
+              <span class="day-badge">Día 4</span>
+              <h3>Cascada de Basaseachi</h3>
+              <ul>
+                <li>Excursión a la cascada (246m de altura)</li>
+                <li>Senderismo por los miradores</li>
+                <li>Comida campestre</li>
+                <li>Regreso a Chihuahua</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Día 5 -->
+        <div class="swiper-slide">
+          <div class="itinerary-card">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800" alt="Aeropuerto">
+            <div class="itinerary-content">
+              <span class="day-badge">Día 5</span>
+              <h3>Despedida</h3>
+              <ul>
+                <li>Desayuno de despedida</li>
+                <li>Tiempo libre para compras</li>
+                <li>Traslado al aeropuerto</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+
+          <!-- Navigation Arrows -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    </div>
+
+  </section>
+
+
+
+
+
+
+
+
+
+
+  <!-- Sección del Mapa -->
+  <section class="map-section">
+    <h2 class="section-title">Recorrido de tu Aventura</h2>
+
+    <div class="map-container">
+      <!-- Ruta principal -->
+      <div class="route-wrapper">
+        <div class="route-line"></div>
+
+        <div class="points-grid">
+          <!-- Chihuahua -->
+          <div class="point">
+            <div class="point-circle">
+              <i class="fas fa-flag-checkered"></i>
+            </div>
+            <div class="point-name">Chihuahua</div>
+            <div class="point-tooltip">
+              <img src="https://images.unsplash.com/photo-1565008576549-57569a49371d?w=400&h=200&fit=crop"
+                alt="Chihuahua" class="tooltip-image">
+              <div class="tooltip-content">
+                <div class="tooltip-title">Chihuahua</div>
+                <div class="tooltip-time">
+                  <i class="far fa-clock"></i>
+                  Punto de inicio
+                </div>
+                <ul class="tooltip-list">
+                  <li>Centro histórico</li>
+                  <li>Catedral metropolitana</li>
+                  <li>Museo Pancho Villa</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Creel -->
+          <div class="point">
+            <div class="point-circle">
+              <i class="fas fa-tree"></i>
+            </div>
+            <div class="point-name">Creel</div>
+            <div class="point-tooltip">
+              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" alt="Creel"
+                class="tooltip-image">
+              <div class="tooltip-content">
+                <div class="tooltip-title">Creel - Pueblo Mágico</div>
+                <div class="tooltip-time">
+                  <i class="far fa-clock"></i>
+                  3-4 horas
+                </div>
+                <ul class="tooltip-list">
+                  <li>Valle de los Hongos</li>
+                  <li>Lago de Arareko</li>
+                  <li>Misión San Ignacio</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Divisadero -->
+          <div class="point">
+            <div class="point-circle">
+              <i class="fas fa-mountain"></i>
+            </div>
+            <div class="point-name">Divisadero</div>
+            <div class="point-tooltip">
+              <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=200&fit=crop"
+                alt="Divisadero" class="tooltip-image">
+              <div class="tooltip-content">
+                <div class="tooltip-title">Divisadero Barrancas</div>
+                <div class="tooltip-time">
+                  <i class="far fa-clock"></i>
+                  33 minutos
+                </div>
+                <ul class="tooltip-list">
+                  <li>Mirador principal</li>
+                  <li>Parque de aventura</li>
+                  <li>Tirolesas y teleférico</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Posada Barrancas -->
+          <div class="point">
+            <div class="point-circle">
+              <i class="fas fa-hotel"></i>
+            </div>
+            <div class="point-name">Posada Barrancas</div>
+            <div class="point-tooltip">
+              <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400&h=200&fit=crop"
+                alt="Posada Barrancas" class="tooltip-image">
+              <div class="tooltip-content">
+                <div class="tooltip-title">Posada Barrancas</div>
+                <div class="tooltip-time">
+                  <i class="far fa-clock"></i>
+                  15 minutos
+                </div>
+                <ul class="tooltip-list">
+                  <li>Zona hotelera</li>
+                  <li>Vistas panorámicas</li>
+                  <li>Caminatas guiadas</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bahuichivo -->
+          <div class="point">
+            <div class="point-circle">
+              <i class="fas fa-train"></i>
+            </div>
+            <div class="point-name">Bahuichivo</div>
+            <div class="point-tooltip">
+              <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=400&h=200&fit=crop"
+                alt="Bahuichivo" class="tooltip-image">
+              <div class="tooltip-content">
+                <div class="tooltip-title">Bahuichivo</div>
+                <div class="tooltip-time">
+                  <i class="far fa-clock"></i>
+                  1h 40min
+                </div>
+                <ul class="tooltip-list">
+                  <li>Estación El Chepe</li>
+                  <li>Pueblo tradicional</li>
+                  <li>Acceso a Cerocahui</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- El Fuerte -->
+          <div class="point">
+            <div class="point-circle">
+              <i class="fas fa-landmark"></i>
+            </div>
+            <div class="point-name">El Fuerte</div>
+            <div class="point-tooltip">
+              <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=400&h=200&fit=crop"
+                alt="El Fuerte" class="tooltip-image">
+              <div class="tooltip-content">
+                <div class="tooltip-title">El Fuerte</div>
+                <div class="tooltip-time">
+                  <i class="far fa-clock"></i>
+                  3 horas
+                </div>
+                <ul class="tooltip-list">
+                  <li>Pueblo mágico colonial</li>
+                  <li>Fuerte español</li>
+                  <li>Río El Fuerte</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Los Mochis -->
+          <div class="point">
+            <div class="point-circle">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="point-name">Los Mochis</div>
+            <div class="point-tooltip">
+              <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=200&fit=crop" alt="Los Mochis"
+                class="tooltip-image">
+              <div class="tooltip-content">
+                <div class="tooltip-title">Los Mochis</div>
+                <div class="tooltip-time">
+                  <i class="far fa-clock"></i>
+                  1 hora
+                </div>
+                <ul class="tooltip-list">
+                  <li>Destino final</li>
+                  <li>Ciudad costera</li>
+                  <li>Playas cercanas</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <h2 class="section-title">Descubre la Magia de Cada Temporada</h2>
+<!-- Guía de Temporadas -->
+<div class="featured-destinations">
+
+  <!-- Primavera / Otoño -->
+  <div class="featured-card">
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&h=400&fit=crop"
+      alt="Primavera y Otoño" class="featured-image">
+    <div class="featured-content">
+      <div class="featured-header">
+        <div class="featured-icon">
+          <i class="fas fa-seedling"></i>
+        </div>
+        <h3>Primavera / Otoño</h3>
+      </div>
+      <p>Temporadas de clima templado y colores vibrantes. Perfectas para senderismo, fotografía y disfrutar de los paisajes naturales llenos de vida.</p>
+    </div>
+  </div>
+
+  <!-- Verano -->
+  <div class="featured-card">
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop"
+      alt="Verano" class="featured-image">
+    <div class="featured-content">
+      <div class="featured-header">
+        <div class="featured-icon">
+          <i class="fas fa-sun"></i>
+        </div>
+        <h3>Verano</h3>
+      </div>
+      <p>Época cálida y aventurera. Ideal para explorar ríos, cascadas, cuevas y disfrutar del turismo al aire libre.</p>
+    </div>
+  </div>
+
+  <!-- Invierno -->
+  <div class="featured-card">
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&h=400&fit=crop"
+      alt="Invierno" class="featured-image">
+    <div class="featured-content">
+      <div class="featured-header">
+        <div class="featured-icon">
+          <i class="fas fa-snowflake"></i>
+        </div>
+        <h3>Invierno</h3>
+      </div>
+      <p>Montañas nevadas y paisajes tranquilos. Ideal para rutas escénicas, fogatas y conocer las tradiciones locales de temporada.</p>
+    </div>
+  </div>
+
+</div>
+
+
+
+    <!-- Otros Destinos -->
+  <section class="destinations" id="destinos">
+    <h2 class="section-title">Otros Destinos</h2>
+
+    <div class="destinations-grid"> 
+      <a href="https://lacasadelviaje.com.mx/viaje/de-chihuahua-a-los-mochis-bdc/" class="destination-card" target="_blank" rel="noopener noreferrer">
+        <img src="https://lacasadelviaje.com.mx/wp-content/uploads/2025/01/BARRANCAS-4-990x490.jpeg" alt="De Chihuahua a Los Mochis">
+        <div class="destination-info">
+          <h3>De Chihuahua a Los Mochis-BDC</h3>
+          <div class="destination-meta">
+            <p class="meta-item"><i class="fas fa-map-marker-alt"></i> México</p>
+            <p class="meta-item"><i class="far fa-clock"></i> 7 Días - 6 Noches</p>
+          </div>
+          <p class="destination-route">Chihuahua – Creel – Divisadero Barrancas – Bahuichivo – El Fuerte – Los Mochis</p>
+        </div>
+      </a>
+    
+      <a href="https://lacasadelviaje.com.mx/viaje/el-chepe-por-barrancas-del-cobre/" class="destination-card" target="_blank" rel="noopener noreferrer">
+        <img src="https://lacasadelviaje.com.mx/wp-content/uploads/2025/01/BARRANCAS-5-990x490.jpg" alt="El Chepe por Barrancas del Cobre">
+        <div class="destination-info">
+          <h3>El Chepe por Barrancas del Cobre</h3>
+          <div class="destination-meta">
+            <p class="meta-item"><i class="fas fa-map-marker-alt"></i> México</p>
+            <p class="meta-item"><i class="far fa-clock"></i> 5 Días - 4 Noches</p>
+          </div>
+          <p class="destination-route">Chihuahua – Creel – Posada Barrancas – Los Mochis</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+<!-- Reseñas -->
+<section class="reviews" id="reseñas">
+  <h2 class="section-title">Reseñas de Nuestros Clientes</h2>
+  <p style="text-align: center; color: #666; margin-bottom: 3rem; font-size: 1.1rem;">
+    Lo que dicen nuestros viajeros en Google
+  </p>
+
+  <div class="swiper reviewsSwiper">
+    <div class="swiper-wrapper">
+      <!-- Reseña 1 -->
+      <div class="swiper-slide">
+        <div class="review-card">
+          <div class="review-header">
+            <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Oscar Alex">
+            <div>
+              <h4>Oscar Alex</h4>
+              <div class="stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p>
+            Muy agradable, atención muy profesional, apoyo en todo momento tanto al iniciar el viaje como en todos los traslados. Están muy al pendiente hasta el final de tu destino. Si tienes dudas te contestan rápido y te dan asesoría inmediata. Los recomiendo ampliamente y volveré a La Casa del Viaje.
+          </p>
+        </div>
+      </div>
+
+      <!-- Reseña 2 -->
+      <div class="swiper-slide">
+        <div class="review-card">
+          <div class="review-header">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Eduardo Hernández">
+            <div>
+              <h4>Eduardo Hernández</h4>
+              <div class="stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p>
+            Excelente atención y servicio, siempre en contacto y asesorando en todo momento. ¡100% recomendable!
+          </p>
+        </div>
+      </div>
+
+      <!-- Reseña 3 -->
+      <div class="swiper-slide">
+        <div class="review-card">
+          <div class="review-header">
+            <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Steph Terron">
+            <div>
+              <h4>Steph Terron</h4>
+              <div class="stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p>
+            Fue una grata experiencia en general. Si bien previo al viaje tuvimos algunas dudas, durante el mismo todo fue conforme a lo que nos ofrecieron. El guía se robó nuestro corazón y tuvimos la fortuna de compartir con un buen grupo de viajeros.
+          </p>
+        </div>
+      </div>
+
+      <!-- Reseña 4 -->
+      <div class="swiper-slide">
+        <div class="review-card">
+          <div class="review-header">
+            <img src="https://randomuser.me/api/portraits/women/47.jpg" alt="Esther Barrón">
+            <div>
+              <h4>Esther Barrón</h4>
+              <div class="stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p>
+            Viajar con esta agencia fue una experiencia muy agradable, todo completamente organizado y cumpliendo a la totalidad lo que te ofrecen. ¡Vamos por mássss!
+          </p>
+        </div>
+      </div>
+
+      <!-- Reseña 5 -->
+      <div class="swiper-slide">
+        <div class="review-card">
+          <div class="review-header">
+            <img src="https://randomuser.me/api/portraits/men/15.jpg" alt="O. R.">
+            <div>
+              <h4>O. R.</h4>
+              <div class="stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p>
+            Excelente servicio y atención personalizada. Muy buen lugar a donde quieras viajar, ellos lo resuelven. ¡Estás en las mejores manos!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reviews-btn">
+    <a href="https://www.google.com/maps/place/La+Casa+Del+Viaje" target="_blank" class="google-btn">
+      Ver más reseñas en Google
+    </a>
+  </div>
+</section>
+
+
+
+
+
+
+
+<footer class="footer">
+
+  <div class="footer-top">
+    <div class="footer-logos">
+      <img src="img/logo-w.png" alt="La Casa del Viaje" id="logo-img-footer">
+      <img src="img/14.png" alt="Agencia de Viajes">
+      <img src="img/15.png" alt="Confetur">
+      <img src="img/16.png" alt="GMA">
+      <img src="img/17.png" alt="Metro">
+
+      <div class="footer-qr">
+        <div class="qr-codes">
+          <img src="img/18.png" alt="QR 1">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p>© Copyright 2024 <strong>LA CASA DEL VIAJE</strong>, NUESTRA CASA ES EL MUNDO.</p>
+  </div>
+</footer>
+
+
+
+
+
+  <!-- Swiper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+
+  <script src="script.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
