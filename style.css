@@ -1,6 +1,14 @@
 :root {
   --primary: #CD1915;
-  --secundary: #ff8000;
+  --secundary: #9e1311;
+  --bg-light: #f8f9fa;
+  --text-dark: #333;
+  --text-light: #666;
+  --radius: 15px;
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.4);
+  --transition: 0.3s ease;
 }
 
 * {
@@ -12,7 +20,7 @@
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  color: #333;
+  color: var(--text-dark);
 }
 
 /* NAVIGATION */
@@ -1772,101 +1780,6 @@ nav {
   padding: 0 1rem;
 }
 
-/* ====================================
-   NOTAS IMPORTANTES PARA EL CLIENTE
-   ====================================
-
-   CÓMO AGREGAR/QUITAR ELEMENTOS SIN ROMPER NADA:
-
-   1. ITINERARIO (Días):
-      - Copia todo el bloque <div class="swiper-slide">...</div>
-      - Pégalo donde quieras (antes o después de otros días)
-      - Cambia el número de día, título, imagen y actividades
-      - ¡Listo! Se adapta automáticamente
-
-   2. TEMPORADAS:
-      - Copia todo el bloque <div class="featured-card">...</div>
-      - Pégalo dentro de <div class="featured-destinations">
-      - Para hacerla grande, agrega la clase: class="featured-card featured-card--hero"
-      - Se adapta solo al número de tarjetas
-
-   3. PUNTOS DEL MAPA:
-      - Copia todo el bloque <div class="point">...</div>
-      - Pégalo dentro de <div class="points-grid">
-      - En móvil: se apilan verticalmente
-      - En desktop: se distribuyen horizontalmente
-      - Se adapta automáticamente
-
-   4. OTROS DESTINOS:
-      - Copia todo el bloque <a class="destination-card">...</a>
-      - Pégalo dentro de <div class="destinations-grid">
-      - Se adapta solo (2 columnas en tablet, 3+ en desktop)
-
-   5. RESEÑAS:
-      - Copia todo el bloque <div class="swiper-slide">...</div>
-      - Pégalo dentro del swiper de reseñas
-      - Se adapta automáticamente
-
-   ⚠️ REGLAS DE ORO:
-   - NO elimines las clases CSS de los elementos
-   - NO cambies los IDs de Swiper (.itinerarySwiper, .reviewsSwiper)
-   - Siempre copia bloques COMPLETOS (desde <div> hasta </div>)
-   - Los grids usan "auto-fit" = se adaptan solos al contenido
-
-   🎨 PERSONALIZACIÓN RÁPIDA:
-   - Cambiar colores: edita --primary y --secundary al inicio del CSS
-   - Cambiar tamaños de fuente: busca "font-size" en la sección que necesites
-   - Agregar espaciado: usa class="section-spacing" en cualquier <section>
-
-   ==================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   :root {
-  --primary: #CD1915;
-  --secondary: #ff8000;
-  --bg-light: #f8f9fa;
-  --text-dark: #333;
-  --text-light: #666;
-  --radius: 15px;
-  --shadow: 0 4px 15px rgba(0,0,0,0.1);
-  --transition: 0.3s ease;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  color: var(--text-dark);
-  background: white;
-}
-
 h2.section-title {
   text-align: center;
   font-size: 2rem;
@@ -1977,7 +1890,7 @@ section {
   margin: 2rem auto;
   padding: 1.5rem;
   background: #fff3cd;
-  border-left: 4px solid var(--secondary);
+  border-left: 4px solid var(--secundary);
   border-radius: 8px;
   color: #856404;
   line-height: 1.6;
@@ -2019,7 +1932,7 @@ section {
 .icon {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background: linear-gradient(135deg, var(--primary), var(--secundary));
   color: white;
   border-radius: 12px;
   display: flex;
@@ -2060,7 +1973,7 @@ section {
 .tren {
   max-width: 900px;
   margin: 3rem auto;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background: linear-gradient(135deg, var(--primary), var(--secundary));
   padding: 2.5rem;
   border-radius: var(--radius);
   color: white;
@@ -2130,4 +2043,450 @@ section {
   .suplementos-grid {
     grid-template-columns: 1fr;
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====================================
+   BOTÓN FLOTANTE DE RESERVA
+   ==================================== */
+.btn-reservar-flotante {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secundary) 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 1.8rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(205, 25, 21, 0.4);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.btn-reservar-flotante:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(205, 25, 21, 0.6);
+}
+
+.btn-reservar-flotante i {
+  font-size: 1.3rem;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 8px 25px rgba(205, 25, 21, 0.4);
+  }
+  50% {
+    box-shadow: 0 8px 35px rgba(205, 25, 21, 0.7);
+  }
+}
+
+/* ====================================
+   MODAL DEL FORMULARIO
+   ==================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  padding: 1rem;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Contenedor del modal */
+.modal-container {
+  background: white;
+  border-radius: 25px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transform: scale(0.8) translateY(-50px);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.modal-overlay.active .modal-container {
+  transform: scale(1) translateY(0);
+}
+
+/* Botón cerrar */
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background: rgba(205, 25, 21, 0.1);
+  transform: rotate(90deg);
+}
+
+.modal-close i {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.modal-close:hover i {
+  color: var(--primary);
+}
+
+/* Header del modal */
+.modal-header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secundary) 100%);
+  color: white;
+  padding: 3rem 2rem 2rem;
+  text-align: center;
+  border-radius: 25px 25px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.modal-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 2.5rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.modal-header h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.modal-header p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+}
+
+/* Body del modal */
+.modal-body {
+  padding: 2rem;
+}
+
+.modal-body .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.modal-body label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #333;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.modal-body label i {
+  color: var(--primary);
+  font-size: 1rem;
+}
+
+.modal-body input,
+.modal-body select {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+}
+
+.modal-body input:focus,
+.modal-body select:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(205, 25, 21, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Botón submit del modal */
+.btn-submit-modal {
+  width: 100%;
+  padding: 1.1rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secundary) 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-submit-modal::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-submit-modal:hover::before {
+  width: 400px;
+  height: 400px;
+}
+
+.btn-submit-modal:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(205, 25, 21, 0.4);
+}
+
+.btn-submit-modal:active {
+  transform: translateY(-1px);
+}
+
+.btn-submit-modal i {
+  position: relative;
+  z-index: 1;
+}
+
+/* Footer del modal */
+.modal-footer {
+  padding: 1.5rem 2rem;
+  background: #f8f9fa;
+  border-radius: 0 0 25px 25px;
+  text-align: center;
+}
+
+.modal-footer p {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.modal-footer i {
+  color: #28a745;
+}
+
+/* ====================================
+   VARIACIÓN: Botón inline para usar en cualquier parte
+   ==================================== */
+.btn-reservar-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secundary) 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(205, 25, 21, 0.3);
+  text-decoration: none;
+}
+
+.btn-reservar-inline:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(205, 25, 21, 0.5);
+}
+
+.btn-reservar-inline i {
+  font-size: 1.1rem;
+}
+
+/* ====================================
+   RESPONSIVE
+   ==================================== */
+@media (max-width: 768px) {
+  .btn-reservar-flotante {
+    bottom: 20px;
+    left: 20px;
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .btn-reservar-flotante span {
+    display: none;
+  }
+
+  .btn-reservar-flotante {
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .modal-container {
+    max-width: 95%;
+    border-radius: 20px;
+  }
+
+  .modal-header {
+    padding: 2.5rem 1.5rem 1.5rem;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .modal-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .modal-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
+
+  .modal-body {
+    padding: 1.5rem;
+  }
+
+  .modal-footer {
+    padding: 1.2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-reservar-flotante {
+    bottom: 15px;
+    left: 15px;
+    width: 55px;
+    height: 55px;
+  }
+
+  .modal-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .modal-body input,
+  .modal-body select {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Scroll suave para el modal */
+.modal-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 0 25px 25px 0;
+}
+
+.modal-container::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+.modal-container::-webkit-scrollbar-thumb:hover {
+  background: var(--secundary);
 }
