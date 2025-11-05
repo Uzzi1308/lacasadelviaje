@@ -56,3 +56,23 @@ const reviewsSwiper = new Swiper(".reviewsSwiper", {
   },
   breakpoints: commonBreakpoints
 });
+
+// Botón Scroll to Top
+const scrollToTopBtn = document.getElementById('scrollToTop');
+
+// Mostrar/ocultar botón al hacer scroll
+window.addEventListener('scroll', function() {
+  if (window.pageYOffset > 300) {
+    scrollToTopBtn.classList.add('show');
+  } else {
+    scrollToTopBtn.classList.remove('show');
+  }
+});
+
+// Scroll suave al hacer clic
+scrollToTopBtn.addEventListener('click', function() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
