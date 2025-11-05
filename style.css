@@ -2121,6 +2121,7 @@ section {
 .no-card li i {
   position: absolute;
   left: 0;
+  top: 8px;
   color: var(--primary);
 }
 
