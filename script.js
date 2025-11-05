@@ -76,3 +76,17 @@ scrollToTopBtn.addEventListener('click', function() {
     behavior: 'smooth'
   });
 });
+
+
+// NAVBAR QUE SE CONTRAE AL HACER SCROLL
+
+const navbar = document.querySelector('nav');
+
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 100) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
