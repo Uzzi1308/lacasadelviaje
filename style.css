@@ -15,9 +15,8 @@ body {
   color: #333;
 }
 
-   /* MOBILE FIRST - Base styles (< 375px) */
+/* NAVIGATION */
 
-/* Navigation */
 nav {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary) 100%);
   padding: 1rem 0;
@@ -76,7 +75,8 @@ nav {
   transition: 0.3s ease-out;
 }
 
-/* Hero Section */
+/* HERO SECTION */
+
 .hero {
   margin-top: 65px;
   padding: 2rem 0;
@@ -122,7 +122,8 @@ nav {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Form */
+/* FORM */
+
 .form-container {
   width: 100%;
   max-width: 400px;
@@ -183,7 +184,8 @@ nav {
   box-shadow: 0 5px 15px rgba(114, 30, 30, 0.4);
 }
 
-/* Experience Section */
+/* EXPERIENCE SECTION */
+
 .experience-section {
   padding: 0;
   background: #f5f5f5;
@@ -312,7 +314,9 @@ nav {
   font-weight: 500;
 }
 
-/* Itinerary Carousel */
+
+/* ITINERARY CAROUSEL */
+
 .itinerary {
   padding: 2rem 1rem;
   background: #fff;
@@ -473,198 +477,8 @@ nav {
   font-weight: 900;
 }
 
-/* 375px */
-@media (min-width: 375px) {
-  .itinerary-card {
-    max-width: 340px;
-  }
+/* MAP SECTION */
 
-  .itinerary-card img {
-    height: 190px;
-  }
-}
-
-/* 768px - Tablets */
-@media (min-width: 768px) {
-  .itinerary {
-    padding: 3rem 2rem;
-  }
-
-  .section-title {
-    font-size: 2.2rem;
-  }
-
-  .itinerary > p {
-    font-size: 1.05rem;
-  }
-
-  .swiper {
-    max-width: 650px;
-  }
-
-  .swiper::before,
-  .swiper::after {
-    width: 80px;
-  }
-
-  .itinerary-card {
-    max-width: 500px;
-  }
-
-  .itinerary-card img {
-    height: 220px;
-  }
-
-  .itinerary-content {
-    padding: 1.6rem;
-  }
-
-  .itinerary-content h3 {
-    font-size: 1.4rem;
-  }
-
-  .itinerary-content li {
-    font-size: 0.92rem;
-  }
-
-  .swiper-button-next,
-  .swiper-button-prev {
-    display: flex;
-  }
-
-  .swiper-button-next {
-    right: -20px;
-  }
-
-  .swiper-button-prev {
-    left: -20px;
-  }
-}
-
-/* 1024px - Desktops */
-@media (min-width: 1024px) {
-  .itinerary {
-    padding: 4rem 2rem;
-  }
-
-  .section-title {
-    font-size: 2.5rem;
-  }
-
-  .swiper {
-    max-width: 750px;
-  }
-
-  .swiper::before,
-  .swiper::after {
-    width: 100px;
-  }
-
-  .itinerary-card {
-    max-width: 600px;
-  }
-
-  .itinerary-card img {
-    height: 260px;
-  }
-
-  .itinerary-content {
-    padding: 2rem;
-  }
-
-  .itinerary-content h3 {
-    font-size: 1.6rem;
-  }
-
-  .itinerary-content li {
-    font-size: 0.98rem;
-  }
-
-  .swiper-button-next,
-  .swiper-button-prev {
-    width: 40px;
-    height: 40px;
-  }
-
-  .swiper-button-next::after,
-  .swiper-button-prev::after {
-    font-size: 20px;
-  }
-}
-
-/* 1440px - Large Desktops */
-@media (min-width: 1440px) {
-  .itinerary {
-    padding: 5rem 2rem;
-  }
-
-  .section-title {
-    font-size: 2.8rem;
-  }
-
-  .swiper {
-    max-width: 850px;
-  }
-
-  .itinerary-card {
-    max-width: 700px;
-  }
-
-  .itinerary-card img {
-    height: 300px;
-  }
-
-  .itinerary-content h3 {
-    font-size: 1.8rem;
-  }
-
-  .itinerary-content li {
-    font-size: 1.02rem;
-  }
-
-  .swiper-button-next,
-  .swiper-button-prev {
-    width: 45px;
-    height: 45px;
-  }
-
-  .swiper-button-next {
-    right: -30px;
-  }
-
-  .swiper-button-prev {
-    left: -30px;
-  }
-}
-
-/* 1920px - Extra Large */
-@media (min-width: 1920px) {
-  .swiper {
-    max-width: 950px;
-  }
-
-  .itinerary-card {
-    max-width: 800px;
-  }
-
-  .itinerary-card img {
-    height: 340px;
-  }
-
-  .itinerary-content {
-    padding: 2.5rem;
-  }
-
-  .itinerary-content h3 {
-    font-size: 2rem;
-  }
-
-  .itinerary-content li {
-    font-size: 1.08rem;
-  }
-}
-
-/* Map Section */
 .map-section {
   padding: 2rem 0.5rem;
   background: white;
@@ -815,7 +629,7 @@ nav {
 }
 
 .tooltip-time i {
-  color: var(--blue);
+  color: var(--secundary);
 }
 
 .tooltip-list {
@@ -838,18 +652,21 @@ nav {
   font-weight: bold;
 }
 
-body > section.map-section > div > h2 {
+.map-section > h2 {
   margin-top: 6rem;
 }
 
-/* Featured Destinations - Seasons */
+   /* FEATURED DESTINATIONS - SEASONS */
+
 .featured-destinations {
   margin-top: 4rem;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  padding: 0 1rem;
-  padding-bottom: 2rem;
+  padding: 0 1rem 2rem;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .featured-card {
@@ -870,7 +687,7 @@ body > section.map-section > div > h2 {
 
 .featured-image {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
   transition: transform 0.4s ease;
 }
@@ -926,7 +743,8 @@ body > section.map-section > div > h2 {
   transition: transform 0.3s ease;
 }
 
-/* Destinations */
+/* DESTINATIONS */
+
 .destinations {
   padding: 5rem 2rem;
   background: #f8f9fa;
@@ -936,7 +754,8 @@ body > section.map-section > div > h2 {
   max-width: 1500px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr;
+  /* Se adapta automáticamente al número de tarjetas */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
 
@@ -947,6 +766,9 @@ body > section.map-section > div > h2 {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
+  text-decoration: none;
+  display: block;
+  color: inherit;
 }
 
 .destination-card:hover {
@@ -966,22 +788,6 @@ body > section.map-section > div > h2 {
 
 .destination-info h3 {
   color: #1a1a1a;
-  margin-bottom: 0.5rem;
-}
-
-.destination-info p {
-  color: #666;
-  margin-bottom: 1rem;
-}
-
-.price {
-  color: #e74c3c;
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-/* Nuevos estilos para metadata y ruta */
-.destination-info h3 {
   margin-bottom: 1rem;
   font-size: 1.7rem;
   font-weight: 600;
@@ -1015,52 +821,8 @@ body > section.map-section > div > h2 {
   margin: 0;
 }
 
-.destination-card {
-  background: white;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-  text-decoration: none; /* Quita el subrayado */
-  display: block; /* Para que funcione como tarjeta */
-  color: inherit; /* Mantiene los colores originales */
-}
+/* REVIEWS */
 
-/* Breakpoints para destinations */
-@media (min-width: 768px) {
-  .destinations-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .destination-card img {
-    height: 280px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .destination-card img {
-    height: 300px;
-  }
-  
-  .destination-info h3 {
-    font-size: 1.4rem;
-  }
-}
-
-@media (min-width: 1920px) {
-  .destinations-grid {
-    max-width: 1800px;
-  }
-  
-  .destination-card img {
-    height: 320px;
-  }
-}
-
-/* Reviews */
 .reviews {
   padding: 5rem 2rem;
   background: #fafafa;
@@ -1136,7 +898,8 @@ body > section.map-section > div > h2 {
   background: #a81412;
 }
 
-/* Footer */
+/* FOOTER */
+
 .footer {
   font-family: 'Arial', sans-serif;
   color: #555;
@@ -1147,7 +910,7 @@ body > section.map-section > div > h2 {
   padding: 20px 0;
 }
 
-.footer-top  h2 {
+.footer-top h2 {
   text-align: center;
   color: #fff;
 }
@@ -1166,25 +929,6 @@ body > section.map-section > div > h2 {
 .footer-logos img {
   width: 155px;
   object-fit: contain;
-}
-
-.footer-qr {
-  text-align: center;
-  color: white;
-  font-size: 12px;
-  line-height: 1.3;
-}
-
-.footer-qr .qr-codes {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 4px;
-}
-
-.footer-qr img {
-  width: 40px;
-  height: 40px;
 }
 
 .footer-bottom {
@@ -1216,16 +960,50 @@ body > section.map-section > div > h2 {
   margin: 0;
 }
 
-.footer-top .footer-logos > div > img {
-  height: auto;
-  width: 200px;
+/* SCROLL TO TOP BUTTON */
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary) 0%, #ff5a56 100%);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 15px rgba(255, 54, 49, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 999;
 }
 
+.scroll-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
 
-   /* 375px and up */
+.scroll-to-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 25px rgba(255, 54, 49, 0.5);
+}
 
+.scroll-to-top:active {
+  transform: translateY(-2px);
+}
+
+/* ====================================
+   RESPONSIVE - 375px
+   ==================================== */
 @media (min-width: 375px) {
-
   .logo {
     font-size: 1rem;
   }
@@ -1233,11 +1011,19 @@ body > section.map-section > div > h2 {
   #logo-img-nav {
     width: 280px;
   }
+
+  .itinerary-card {
+    max-width: 340px;
+  }
+
+  .itinerary-card img {
+    height: 190px;
+  }
 }
 
-
-   /* 768px and up - Tablets */
-
+/* ====================================
+   RESPONSIVE - 768px Tablets
+   ==================================== */
 @media (min-width: 768px) {
   .nav-container {
     padding: 0 1.5rem;
@@ -1410,31 +1196,12 @@ body > section.map-section > div > h2 {
   }
 
   .featured-destinations {
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 830px;
-    margin-left: auto;
-    margin-right: auto;
-    grid-template-rows: repeat(1, 1fr);
-  }
-
-  body > div > div:nth-child(1) {
-    grid-area: 1 / 1 / 3 / 3;
-  }
-
-  body > div > div:nth-child(2) {
-    grid-area: 1 / 3 / 2 / 5;
-  }
-
-  body > div > div:nth-child(3) {
-    grid-area: 2 / 3 / 3 / 5;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    max-width: 900px;
   }
 
   .featured-image {
-    height: 170px;
-  }
-
-  body > div > div:nth-child(1) > img {
-    height: 73%;
+    height: 180px;
   }
 
   .featured-content {
@@ -1442,26 +1209,43 @@ body > section.map-section > div > h2 {
   }
 
   .featured-card h3 {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
   }
 
   .featured-card p {
-    font-size: 0.95rem;
-  }
-
-  .destinations-grid {
-    grid-template-columns: repeat(2, 1fr);
+    font-size: 0.9rem;
   }
 
   .footer-bottom {
     flex-direction: row;
     justify-content: space-around;
   }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: flex;
+  }
+
+  .swiper-button-next {
+    right: -20px;
+  }
+
+  .swiper-button-prev {
+    left: -20px;
+  }
+
+  .scroll-to-top {
+    width: 45px;
+    height: 45px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1rem;
+  }
 }
 
-
-   /* 1024px and up - Small Desktops */
-
+/* ====================================
+   RESPONSIVE - 1024px Small Desktops
+   ==================================== */
 @media (min-width: 1024px) {
   .nav-container {
     padding: 0 2rem;
@@ -1557,10 +1341,55 @@ body > section.map-section > div > h2 {
     font-size: 2.5rem;
   }
 
+  .itinerary {
+    padding: 4rem 2rem;
+  }
+
+  .swiper {
+    max-width: 750px;
+  }
+
+  .swiper::before,
+  .swiper::after {
+    width: 100px;
+  }
+
+  .itinerary-card {
+    max-width: 600px;
+  }
+
+  .itinerary-card img {
+    height: 260px;
+  }
+
+  .itinerary-content {
+    padding: 2rem;
+  }
+
+  .itinerary-content h3 {
+    font-size: 1.6rem;
+  }
+
+  .itinerary-content li {
+    font-size: 0.98rem;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 20px;
+  }
+
   .route-wrapper {
     padding: 2rem 0;
   }
 
+  /* MAPA: Cambio a horizontal en desktop */
   .route-line {
     top: 50%;
     left: 5%;
@@ -1573,7 +1402,7 @@ body > section.map-section > div > h2 {
   }
 
   .points-grid {
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 1rem;
     padding-left: 0;
   }
@@ -1595,7 +1424,7 @@ body > section.map-section > div > h2 {
 
   .point-name {
     text-align: center;
-    max-width: 100px;
+    max-width: 120px;
   }
 
   .point-tooltip {
@@ -1607,14 +1436,6 @@ body > section.map-section > div > h2 {
     width: 250px;
     max-width: none;
     margin-bottom: 1rem;
-  }
-
-  .points-grid > div:nth-child(1) .point-tooltip {
-    left: 100%;
-  }
-
-  .points-grid > div:nth-child(7) .point-tooltip {
-    left: 0%;
   }
 
   .point-tooltip::after {
@@ -1632,43 +1453,25 @@ body > section.map-section > div > h2 {
     transform: translateX(-50%);
   }
 
-  .destinations-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .featured-destinations {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    max-width: 1200px;
+  }
+
+  .featured-image {
+    height: 200px;
+  }
+
+  .destination-card img {
+    height: 280px;
   }
 }
 
-
- /* 1440px and up - Large Desktops */
-
+/* ====================================
+   RESPONSIVE - 1440px Large Desktops
+   ==================================== */
 @media (min-width: 1440px) {
-    .featured-destinations {
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 1440px;
-    margin-left: auto;
-    margin-right: auto;
-    gap: 1.5;
-    grid-template-rows: repeat(1, 1fr);
-  }
-
-  body > div > div:nth-child(1) {
-    grid-area: inherit;
-  }
-
-  body > div > div:nth-child(2) {
-    grid-area: inherit;
-  }
-
-  body > div > div:nth-child(3) {
-    grid-area: inherit;
-  }
-
-
-  .featured-image {
-    height: 230px !important;
-  }
-
-
-    .nav-links {
+  .nav-links {
     gap: 2rem;
   }
 
@@ -1743,11 +1546,83 @@ body > section.map-section > div > h2 {
   .badge-text {
     font-size: 0.7rem;
   }
+
+  .itinerary {
+    padding: 5rem 2rem;
+  }
+
+  .section-title {
+    font-size: 2.8rem;
+  }
+
+  .swiper {
+    max-width: 850px;
+  }
+
+  .itinerary-card {
+    max-width: 700px;
+  }
+
+  .itinerary-card img {
+    height: 300px;
+  }
+
+  .itinerary-content h3 {
+    font-size: 1.8rem;
+  }
+
+  .itinerary-content li {
+    font-size: 1.02rem;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 45px;
+    height: 45px;
+  }
+
+  .swiper-button-next {
+    right: -30px;
+  }
+
+  .swiper-button-prev {
+    left: -30px;
+  }
+
+  .featured-destinations {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    max-width: 1440px;
+    gap: 2rem;
+  }
+
+  .featured-image {
+    height: 220px;
+  }
+
+  .featured-content {
+    padding: 1.8rem;
+  }
+
+  .featured-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .featured-card p {
+    font-size: 0.95rem;
+  }
+
+  .destination-card img {
+    height: 300px;
+  }
+
+  .destination-info h3 {
+    font-size: 1.4rem;
+  }
 }
 
-/* ========================================
-   1920px and up - Extra Large Screens
-   ======================================== */
+/* ====================================
+   RESPONSIVE - 1920px Extra Large
+   ==================================== */
 @media (min-width: 1920px) {
   .section-title {
     font-size: 3rem;
@@ -1764,58 +1639,50 @@ body > section.map-section > div > h2 {
   .experience-features li {
     font-size: 1.1rem;
   }
-}
 
-/* Botón Scroll to Top */
-.scroll-to-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, var(--primary) 0%, #ff5a56 100%);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  box-shadow: 0 4px 15px rgba(255, 54, 49, 0.4);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(20px);
-  transition: all 0.3s ease;
-  z-index: 999;
-}
+  .swiper {
+    max-width: 950px;
+  }
 
-.scroll-to-top.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
+  .itinerary-card {
+    max-width: 800px;
+  }
 
-.scroll-to-top:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 25px rgba(255, 54, 49, 0.5);
-}
+  .itinerary-card img {
+    height: 340px;
+  }
 
-.scroll-to-top:active {
-  transform: translateY(-2px);
-}
+  .itinerary-content {
+    padding: 2.5rem;
+  }
 
-/* Responsive */
-@media (max-width: 768px) {
+  .itinerary-content h3 {
+    font-size: 2rem;
+  }
+
+  .itinerary-content li {
+    font-size: 1.08rem;
+  }
+
+  .destinations-grid {
+    max-width: 1800px;
+  }
+
+  .destination-card img {
+    height: 320px;
+  }
+
   .scroll-to-top {
-    width: 45px;
-    height: 45px;
-    bottom: 20px;
-    right: 20px;
-    font-size: 1rem;
+    width: 50px;
+    height: 50px;
+    bottom: 30px;
+    right: 30px;
   }
 }
 
+/* ====================================
+   MOBILE EXTRA PEQUEÑO - 480px y menos
+   ==================================== */
 @media (max-width: 480px) {
   .scroll-to-top {
     width: 40px;
@@ -1824,4 +1691,131 @@ body > section.map-section > div > h2 {
     right: 15px;
     font-size: 0.9rem;
   }
+
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .form-container {
+    padding: 1rem;
+  }
 }
+
+/* ====================================
+   CLASES HELPER PARA AGREGAR MANUALMENTE
+   ==================================== */
+
+/* Usar estas clases en tu HTML para casos especiales */
+
+/* Hacer una tarjeta de temporada destacada (ocupa más espacio) */
+.featured-card--hero {
+  /* En móvil: normal */
+  grid-column: span 1;
+}
+
+@media (min-width: 768px) {
+  .featured-card--hero {
+    /* En tablet+: ocupa 2 columnas */
+    grid-column: span 2;
+  }
+  
+  .featured-card--hero .featured-image {
+    height: 300px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .featured-card--hero {
+    /* En desktop: ocupa 2 columnas y 2 filas */
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  
+  .featured-card--hero .featured-image {
+    height: 100%;
+    min-height: 400px;
+  }
+}
+
+/* Ocultar elementos en móvil */
+.desktop-only {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .desktop-only {
+    display: block;
+  }
+}
+
+/* Ocultar elementos en desktop */
+.mobile-only {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+}
+
+/* Espaciado extra entre secciones */
+.section-spacing {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+/* Contenedor centrado con máximo ancho */
+.content-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ====================================
+   NOTAS IMPORTANTES PARA EL CLIENTE
+   ====================================
+
+   CÓMO AGREGAR/QUITAR ELEMENTOS SIN ROMPER NADA:
+
+   1. ITINERARIO (Días):
+      - Copia todo el bloque <div class="swiper-slide">...</div>
+      - Pégalo donde quieras (antes o después de otros días)
+      - Cambia el número de día, título, imagen y actividades
+      - ¡Listo! Se adapta automáticamente
+
+   2. TEMPORADAS:
+      - Copia todo el bloque <div class="featured-card">...</div>
+      - Pégalo dentro de <div class="featured-destinations">
+      - Para hacerla grande, agrega la clase: class="featured-card featured-card--hero"
+      - Se adapta solo al número de tarjetas
+
+   3. PUNTOS DEL MAPA:
+      - Copia todo el bloque <div class="point">...</div>
+      - Pégalo dentro de <div class="points-grid">
+      - En móvil: se apilan verticalmente
+      - En desktop: se distribuyen horizontalmente
+      - Se adapta automáticamente
+
+   4. OTROS DESTINOS:
+      - Copia todo el bloque <a class="destination-card">...</a>
+      - Pégalo dentro de <div class="destinations-grid">
+      - Se adapta solo (2 columnas en tablet, 3+ en desktop)
+
+   5. RESEÑAS:
+      - Copia todo el bloque <div class="swiper-slide">...</div>
+      - Pégalo dentro del swiper de reseñas
+      - Se adapta automáticamente
+
+   ⚠️ REGLAS DE ORO:
+   - NO elimines las clases CSS de los elementos
+   - NO cambies los IDs de Swiper (.itinerarySwiper, .reviewsSwiper)
+   - Siempre copia bloques COMPLETOS (desde <div> hasta </div>)
+   - Los grids usan "auto-fit" = se adaptan solos al contenido
+
+   🎨 PERSONALIZACIÓN RÁPIDA:
+   - Cambiar colores: edita --primary y --secundary al inicio del CSS
+   - Cambiar tamaños de fuente: busca "font-size" en la sección que necesites
+   - Agregar espaciado: usa class="section-spacing" en cualquier <section>
+
+   ==================================== */
