@@ -270,6 +270,10 @@ nav {
   padding: 2.5rem 1.5rem;
   background: white;
   order: 1;
+  width: max-content;
+  height: max-content;
+  margin: 0 auto;
+  margin-block: auto;
 }
 
 .experience-image {
@@ -1086,10 +1090,6 @@ nav {
     font-size: 1.1rem;
   }
 
-  .experience-badge {
-    right: 10rem;
-  }
-
   .experience-content {
     padding: 3rem 2rem;
   }
@@ -1315,10 +1315,6 @@ nav {
     grid-template-columns: 1fr 1fr;
   }
 
-  .experience-badge {
-    right: 1rem;
-  }
-
   .experience-content {
     padding: 4rem 2.5rem;
     order: 1;
@@ -1540,8 +1536,6 @@ nav {
   .experience-badge {
     width: 150px;
     height: 150px;
-    top: 1.5rem;
-    right: 1.5rem;
   }
 
   .badge-years {
@@ -1804,10 +1798,12 @@ section {
   text-align: center;
   padding: 2rem;
   transition: var(--transition);
+  cursor: pointer;
 }
 
 .price-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
 .price-card h3 {

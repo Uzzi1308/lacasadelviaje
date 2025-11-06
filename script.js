@@ -154,11 +154,17 @@ const initModal = () => {
     form.reset();
   });
 
-  // Botones inline
+// Botones inline y tarjetas de precio
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('.btn-reservar-inline');
+    const priceCard = e.target.closest('.price-card');
+    
     if (btn) {
       e.preventDefault();
+      openModal();
+    }
+    
+    if (priceCard) {
       openModal();
     }
   });
