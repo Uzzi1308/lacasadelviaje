@@ -2148,6 +2148,8 @@ section {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   transform: scale(0.8) translateY(-50px);
   transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-overlay.active .modal-container {
@@ -2195,6 +2197,7 @@ section {
   border-radius: 25px 25px 0 0;
   position: relative;
   overflow: hidden;
+  flex-shrink: 0; /* No se comprime */
 }
 
 .modal-header::before {
@@ -2230,14 +2233,14 @@ section {
 }
 
 .modal-header h2 {
-  font-size: 2rem;
+  font-size: clamp(1.3rem, 4vw, 2rem);
   margin-bottom: 0.5rem;
   position: relative;
   z-index: 1;
 }
 
 .modal-header p {
-  font-size: 0.95rem;
+  font-size: clamp(0.8rem, 3vw, 0.95rem);
   opacity: 0.9;
   position: relative;
   z-index: 1;
@@ -2245,11 +2248,13 @@ section {
 
 /* Body del modal */
 .modal-body {
-  padding: 2rem;
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
 }
 
 .modal-body .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .modal-body label {
@@ -2342,10 +2347,11 @@ section {
 
 /* Footer del modal */
 .modal-footer {
-  padding: 1.5rem 2rem;
+  padding: 1rem 1.5rem;
   background: #f8f9fa;
   border-radius: 0 0 25px 25px;
   text-align: center;
+  flex-shrink: 0;
 }
 
 .modal-footer p {
@@ -2479,4 +2485,112 @@ section {
 
 .modal-container::-webkit-scrollbar-thumb:hover {
   background: var(--secundary);
+}
+
+/* AGREGAR AL FINAL DEL CSS: */
+
+/* Para dispositivos con altura limitada */
+@media (max-height: 800px) {
+  .modal-container {
+    max-height: 95vh;
+  }
+  
+  .modal-header {
+    padding: 1.5rem 1.5rem 1rem;
+  }
+  
+  .modal-header h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .modal-header p {
+    font-size: 0.85rem;
+  }
+  
+  .modal-body {
+    padding: 1rem;
+  }
+  
+  .modal-body .form-group {
+    margin-bottom: 0.8rem;
+  }
+  
+  .modal-body label {
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .modal-body input,
+  .modal-body select {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .btn-submit-modal {
+    padding: 0.9rem;
+    font-size: 1rem;
+  }
+  
+  .modal-footer {
+    padding: 0.8rem 1rem;
+  }
+  
+  .modal-footer p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-height: 600px) {
+  .modal-container {
+    max-height: 98vh;
+    border-radius: 15px;
+  }
+  
+  .modal-header {
+    padding: 1rem 1rem 0.8rem;
+    border-radius: 15px 15px 0 0;
+  }
+  
+  .modal-header h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  .modal-header p {
+    font-size: 0.8rem;
+  }
+  
+  .modal-body {
+    padding: 0.8rem;
+  }
+  
+  .modal-body .form-group {
+    margin-bottom: 0.6rem;
+  }
+  
+  .modal-body label {
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .modal-body input,
+  .modal-body select {
+    padding: 0.6rem;
+    font-size: 0.85rem;
+  }
+  
+  .btn-submit-modal {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+  }
+  
+  .modal-footer {
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .modal-footer p {
+    font-size: 0.75rem;
+  }
 }
