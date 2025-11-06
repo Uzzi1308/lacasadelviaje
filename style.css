@@ -115,7 +115,7 @@ nav {
 }
 
 .hero-text h1 {
-  font-size: 3rem;
+  font-size: clamp(2.5rem, 4vw + 1rem, 7rem);
   margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   line-height: 1;
@@ -443,6 +443,7 @@ nav {
   border-bottom: 1px solid #f0f0f0;
   position: relative;
   line-height: 1.4;
+  text-align: justify;
 }
 
 .itinerary-content li:last-child {
@@ -1063,7 +1064,6 @@ nav {
   }
 
   .hero-text h1 {
-    font-size: 4rem;
     margin-bottom: 1.5rem;
   }
 
@@ -1295,7 +1295,6 @@ nav {
   }
 
   .hero-text h1 {
-    font-size: 3.8rem;
     margin-bottom: 0;
   }
 
@@ -1497,10 +1496,6 @@ nav {
     gap: 4rem;
   }
 
-  .hero-text h1 {
-    font-size: 5.5rem;
-  }
-
   .hero-text p {
     font-size: 1.9rem;
   }
@@ -1700,10 +1695,6 @@ nav {
     bottom: 15px;
     left: 15px;
     font-size: 0.9rem;
-  }
-
-  .hero-text h1 {
-    font-size: 2.5rem;
   }
 
   .form-container {
