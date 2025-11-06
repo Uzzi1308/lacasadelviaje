@@ -7,10 +7,15 @@
   <meta name="description" content="Descubre las Barrancas del Cobre con La Casa del Viaje. Tour de 5 días con todo incluido: Chepe Express, hoteles y guías certificados.">
   <title>Barrancas del Cobre - La Casa del Viaje</title>
 
-  <!-- Preconnect -->
+  <!-- Preconnect para recursos externos -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
-  <link rel="dns-prefetch" href="https://lacasadelviaje.com.mx">
+  <link rel="preconnect" href="https://lacasadelviaje.com.mx">
+  <link rel="preconnect" href="https://randomuser.me">
+
+  <!-- Preload CSS crítico -->
+  <link rel="preload" href="style.css" as="style">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
@@ -18,16 +23,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-
 <body>
   <!-- Navigation -->
   <nav>
     <div class="nav-container">
-      <a href="https://lacasadelviaje.com.mx/" class="logo" target="_blank" id="container-logo-nav">
-        <img src="https://lacasadelviaje.com.mx/wp-content/uploads/2024/10/LCDV-logo-white-01.png" alt=""
-          id="logo-img-nav">
-
-        <!-- <p>La Casa del Viaje</p> -->
+      <a href="https://lacasadelviaje.com.mx/" class="logo" target="_blank" rel="noopener noreferrer" id="container-logo-nav">
+        <img src="https://lacasadelviaje.com.mx/wp-content/uploads/2024/10/LCDV-logo-white-01.png" 
+             alt="La Casa del Viaje" 
+             id="logo-img-nav"
+             width="280"
+             height="auto"
+             loading="eager">
       </a>
       <ul class="nav-links">
         <li><a href="#destinos">Destinos</a></li>
@@ -42,37 +48,27 @@
   <section class="hero">
     <div class="hero-content">
       <div class="hero-text">
-        <h1>BARRANCAS <br>
-          DEL COBRE</h1>
-
+        <h1>BARRANCAS<br>DEL COBRE</h1>
         <p>Vive tu mejor experiencia con nosotros.</p>
       </div>
       <div class="form-container">
         <h3>Reserva tu Aventura</h3>
-
         <form id="bookingForm">
           <div class="form-group">
             <label><i class="fas fa-user"></i> Nombre Completo</label>
-
-            <input type="text" required placeholder="Juan Pérez">
+            <input type="text" required placeholder="Juan Pérez" name="nombre" autocomplete="name">
           </div>
-
           <div class="form-group">
             <label><i class="fas fa-envelope"></i> Email</label>
-
-            <input type="email" required placeholder="tu@email.com">
+            <input type="email" required placeholder="tu@email.com" name="email" autocomplete="email">
           </div>
-
           <div class="form-group">
             <label><i class="fas fa-phone"></i> Teléfono</label>
-
-            <input type="tel" required placeholder="(123) 456-7890">
+            <input type="tel" required placeholder="(123) 456-7890" name="telefono" autocomplete="tel">
           </div>
-
           <div class="form-group">
             <label><i class="fas fa-users"></i> Número de Viajeros</label>
-
-            <select required>
+            <select required name="viajeros">
               <option value="">Selecciona</option>
               <option value="1">1 persona</option>
               <option value="2">2 personas</option>
@@ -81,27 +77,17 @@
               <option value="5+">5+ personas</option>
             </select>
           </div>
-
-          <!-- <div class="form-group">
-            <label>Fecha Preferida</label>
-
-            <input type="date" required>
-          </div> -->
-
           <button type="submit" class="btn-submit-modal">
             <i class="fas fa-paper-plane"></i>
             Enviar Solicitud
           </button>
         </form>
-
         <div class="modal-footer">
           <p><i class="fas fa-shield-alt"></i> Tus datos están seguros con nosotros</p>
         </div>
       </div>
     </div>
   </section>
-
-
 
   <!-- Sección Experiencia -->
   <section class="experience-section">
@@ -111,8 +97,7 @@
           Vive la grandeza del Cañón más espectacular de México con todo planeado por expertos.
         </h2>
         <p class="experience-description">
-          Disfruta un viaje sin estrés: alojamiento, transporte, y las mejores vistas del tren Chepe incluidos. ¡Sólo
-          preocúpate por disfrutar cada amanecer sobre las Barrancas del Cobre!
+          Disfruta un viaje sin estrés: alojamiento, transporte, y las mejores vistas del tren Chepe incluidos. ¡Sólo preocúpate por disfrutar cada amanecer sobre las Barrancas del Cobre!
         </p>
         <ul class="experience-features">
           <li>Paquetes personalizados según temporada</li>
@@ -126,25 +111,23 @@
           <div class="badge-text">de experiencia</div>
         </div>
         <div class="experience-image">
-          <img src="img/jóvenes.png" alt="Aventura en Barrancas del Cobre">
+          <img src="img/jóvenes.png" alt="Aventura en Barrancas del Cobre" loading="lazy" width="480" height="480">
         </div>
       </div>
     </div>
   </section>
 
-
   <!-- Itinerario Carousel -->
   <section class="itinerary" id="itinerario">
     <h2 class="section-title">Itinerario de 5 Días</h2>
-    <p style="text-align: center; color: #666; margin-bottom: 3rem; font-size: 1.1rem;">Arrastra para conocer cada día
-      de tu aventura</p>
+    <p style="text-align: center; color: #666; margin-bottom: 3rem; font-size: 1.1rem;">Arrastra para conocer cada día de tu aventura</p>
 
     <div class="swiper itinerarySwiper">
       <div class="swiper-wrapper">
         <!-- Día 1 -->
         <div class="swiper-slide">
           <div class="itinerary-card">
-            <img src="https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800" alt="Chihuahua">
+            <img src="https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800" alt="Chihuahua" loading="lazy" width="800" height="600">
             <div class="itinerary-content">
               <span class="day-badge">Día 1</span>
               <h3>CDMX – Chihuahua</h3>
@@ -163,7 +146,7 @@
         <!-- Día 2 -->
         <div class="swiper-slide">
           <div class="itinerary-card">
-            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800" alt="Creel">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800" alt="Creel" loading="lazy" width="800" height="600">
             <div class="itinerary-content">
               <span class="day-badge">Día 2</span>
               <h3>Chihuahua – Creel</h3>
@@ -182,7 +165,7 @@
         <!-- Día 3 -->
         <div class="swiper-slide">
           <div class="itinerary-card">
-            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800" alt="Divisadero">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800" alt="Divisadero" loading="lazy" width="800" height="600">
             <div class="itinerary-content">
               <span class="day-badge">Día 3</span>
               <h3>Creel – Divisadero Barrancas</h3>
@@ -201,7 +184,7 @@
         <!-- Día 4 -->
         <div class="swiper-slide">
           <div class="itinerary-card">
-            <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=800" alt="Tren El Chepe">
+            <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=800" alt="Tren El Chepe" loading="lazy" width="800" height="600">
             <div class="itinerary-content">
               <span class="day-badge">Día 4</span>
               <h3>Divisadero Barrancas – El Fuerte</h3>
@@ -220,7 +203,7 @@
         <!-- Día 5 -->
         <div class="swiper-slide">
           <div class="itinerary-card">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800" alt="El Fuerte">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800" alt="El Fuerte" loading="lazy" width="800" height="600">
             <div class="itinerary-content">
               <span class="day-badge">Día 5</span>
               <h3>El Fuerte – CDMX</h3>
@@ -237,24 +220,18 @@
         </div>
       </div>
 
-      <!-- Pagination -->
       <div class="swiper-pagination"></div>
-
-      <!-- Navigation Arrows -->
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
     </div>
-
   </section>
+
   <!-- Sección del Mapa -->
   <section class="map-section">
     <h2 class="section-title">Recorrido de tu Aventura</h2>
-
     <div class="map-container">
-      <!-- Ruta principal -->
       <div class="route-wrapper">
         <div class="route-line"></div>
-
         <div class="points-grid">
           <!-- Chihuahua -->
           <div class="point">
@@ -263,8 +240,7 @@
             </div>
             <div class="point-name">Chihuahua</div>
             <div class="point-tooltip">
-              <img src="https://images.unsplash.com/photo-1565008576549-57569a49371d?w=400&h=200&fit=crop"
-                alt="Chihuahua" class="tooltip-image">
+              <img src="https://images.unsplash.com/photo-1565008576549-57569a49371d?w=400&h=200&fit=crop" alt="Chihuahua" class="tooltip-image" loading="lazy" width="400" height="200">
               <div class="tooltip-content">
                 <div class="tooltip-title">Chihuahua</div>
                 <div class="tooltip-time">
@@ -287,8 +263,7 @@
             </div>
             <div class="point-name">Creel</div>
             <div class="point-tooltip">
-              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" alt="Creel"
-                class="tooltip-image">
+              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" alt="Creel" class="tooltip-image" loading="lazy" width="400" height="200">
               <div class="tooltip-content">
                 <div class="tooltip-title">Creel - Pueblo Mágico</div>
                 <div class="tooltip-time">
@@ -311,8 +286,7 @@
             </div>
             <div class="point-name">Divisadero</div>
             <div class="point-tooltip">
-              <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=200&fit=crop"
-                alt="Divisadero" class="tooltip-image">
+              <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=200&fit=crop" alt="Divisadero" class="tooltip-image" loading="lazy" width="400" height="200">
               <div class="tooltip-content">
                 <div class="tooltip-title">Divisadero Barrancas</div>
                 <div class="tooltip-time">
@@ -335,8 +309,7 @@
             </div>
             <div class="point-name">El Fuerte</div>
             <div class="point-tooltip">
-              <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=400&h=200&fit=crop"
-                alt="El Fuerte" class="tooltip-image">
+              <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=400&h=200&fit=crop" alt="El Fuerte" class="tooltip-image" loading="lazy" width="400" height="200">
               <div class="tooltip-content">
                 <div class="tooltip-title">El Fuerte</div>
                 <div class="tooltip-time">
@@ -359,11 +332,9 @@
   <h2 class="section-title">Descubre la Magia de Cada Temporada</h2>
   <!-- Guía de Temporadas -->
   <div class="featured-destinations">
-
     <!-- Primavera / Otoño -->
     <div class="featured-card">
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&h=400&fit=crop"
-        alt="Primavera y Otoño" class="featured-image">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&h=400&fit=crop" alt="Primavera y Otoño" class="featured-image" loading="lazy" width="600" height="400">
       <div class="featured-content">
         <div class="featured-header">
           <div class="featured-icon">
@@ -371,15 +342,13 @@
           </div>
           <h3>Primavera / Otoño</h3>
         </div>
-        <p>Temporadas de clima templado y colores vibrantes. Perfectas para senderismo, fotografía y disfrutar de los
-          paisajes naturales llenos de vida.</p>
+        <p>Temporadas de clima templado y colores vibrantes. Perfectas para senderismo, fotografía y disfrutar de los paisajes naturales llenos de vida.</p>
       </div>
     </div>
 
     <!-- Verano -->
     <div class="featured-card">
-      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop" alt="Verano"
-        class="featured-image">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=400&fit=crop" alt="Verano" class="featured-image" loading="lazy" width="600" height="400">
       <div class="featured-content">
         <div class="featured-header">
           <div class="featured-icon">
@@ -387,15 +356,13 @@
           </div>
           <h3>Verano</h3>
         </div>
-        <p>Época cálida y aventurera. Ideal para explorar ríos, cascadas, cuevas y disfrutar del turismo al aire libre.
-        </p>
+        <p>Época cálida y aventurera. Ideal para explorar ríos, cascadas, cuevas y disfrutar del turismo al aire libre.</p>
       </div>
     </div>
 
     <!-- Invierno -->
     <div class="featured-card">
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&h=400&fit=crop" alt="Invierno"
-        class="featured-image">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&h=400&fit=crop" alt="Invierno" class="featured-image" loading="lazy" width="600" height="400">
       <div class="featured-content">
         <div class="featured-header">
           <div class="featured-icon">
@@ -403,49 +370,32 @@
           </div>
           <h3>Invierno</h3>
         </div>
-        <p>Montañas nevadas y paisajes tranquilos. Ideal para rutas escénicas, fogatas y conocer las tradiciones locales
-          de temporada.</p>
+        <p>Montañas nevadas y paisajes tranquilos. Ideal para rutas escénicas, fogatas y conocer las tradiciones locales de temporada.</p>
       </div>
     </div>
-
   </div>
-
-
-
-
-
-
-
-
-
-
 
   <!-- Sección de Precios -->
   <section class="precios">
     <h2 class="section-title">Precios por Persona</h2>
-
     <div class="price-grid">
       <div class="price-card">
         <h3>Sencilla</h3>
         <p class="price">$27,169</p>
       </div>
-
       <div class="price-card popular">
         <div class="badge">Más Popular</div>
         <h3>Doble</h3>
         <p class="price">$16,399</p>
       </div>
-
       <div class="price-card">
         <h3>Triple</h3>
         <p class="price">$13,999</p>
       </div>
-
       <div class="price-card">
         <h3>Cuádruple</h3>
         <p class="price">$12,999</p>
       </div>
-
       <div class="price-card">
         <h3>Menor</h3>
         <p class="subtext">(2 a 10 años)</p>
@@ -479,7 +429,6 @@
   <!-- Incluye en el Tour -->
   <section class="incluye">
     <h2 class="section-title">El Tour Incluye</h2>
-
     <div class="destinos-grid">
       <div class="destino">
         <div class="destino-header">
@@ -566,36 +515,24 @@
     </div>
   </section>
 
-
-
-
-
-
-
   <!-- Otros Destinos -->
   <section class="destinations" id="destinos">
     <h2 class="section-title">Otros Destinos</h2>
-
     <div class="destinations-grid">
-      <a href="https://lacasadelviaje.com.mx/viaje/de-chihuahua-a-los-mochis-bdc/" class="destination-card"
-        target="_blank" rel="noopener noreferrer">
-        <img src="https://lacasadelviaje.com.mx/wp-content/uploads/2025/01/BARRANCAS-4-990x490.jpeg"
-          alt="De Chihuahua a Los Mochis">
+      <a href="https://lacasadelviaje.com.mx/viaje/de-chihuahua-a-los-mochis-bdc/" class="destination-card" target="_blank" rel="noopener noreferrer">
+        <img src="https://lacasadelviaje.com.mx/wp-content/uploads/2025/01/BARRANCAS-4-990x490.jpeg" alt="De Chihuahua a Los Mochis" loading="lazy" width="990" height="490">
         <div class="destination-info">
           <h3>De Chihuahua a Los Mochis-BDC</h3>
           <div class="destination-meta">
             <p class="meta-item"><i class="fas fa-map-marker-alt"></i> México</p>
             <p class="meta-item"><i class="far fa-clock"></i> 7 Días - 6 Noches</p>
           </div>
-          <p class="destination-route">Chihuahua – Creel – Divisadero Barrancas – Bahuichivo – El Fuerte – Los Mochis
-          </p>
+          <p class="destination-route">Chihuahua – Creel – Divisadero Barrancas – Bahuichivo – El Fuerte – Los Mochis</p>
         </div>
       </a>
 
-      <a href="https://lacasadelviaje.com.mx/viaje/el-chepe-por-barrancas-del-cobre/" class="destination-card"
-        target="_blank" rel="noopener noreferrer">
-        <img src="https://lacasadelviaje.com.mx/wp-content/uploads/2025/01/BARRANCAS-5-990x490.jpg"
-          alt="El Chepe por Barrancas del Cobre">
+      <a href="https://lacasadelviaje.com.mx/viaje/el-chepe-por-barrancas-del-cobre/" class="destination-card" target="_blank" rel="noopener noreferrer">
+        <img src="https://lacasadelviaje.com.mx/wp-content/uploads/2025/01/BARRANCAS-5-990x490.jpg" alt="El Chepe por Barrancas del Cobre" loading="lazy" width="990" height="490">
         <div class="destination-info">
           <h3>El Chepe por Barrancas del Cobre</h3>
           <div class="destination-meta">
@@ -609,7 +546,7 @@
   </section>
 
   <!-- Reseñas -->
-  <section class="reviews" id="reseñas">
+  <section class="reviews" id="testimonios">
     <h2 class="section-title">Reseñas de Nuestros Clientes</h2>
     <p style="text-align: center; color: #666; margin-bottom: 3rem; font-size: 1.1rem;">
       Lo que dicen nuestros viajeros en Google
@@ -617,37 +554,31 @@
 
     <div class="swiper reviewsSwiper">
       <div class="swiper-wrapper">
-        <!-- Reseña 1 -->
         <div class="swiper-slide">
           <div class="review-card">
             <div class="review-header">
-              <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Oscar Alex">
+              <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Oscar Alex" loading="lazy" width="60" height="60">
               <div>
                 <h4>Oscar Alex</h4>
                 <div class="stars">
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
               </div>
             </div>
             <p>
-              Muy agradable, atención muy profesional, apoyo en todo momento tanto al iniciar el viaje como en todos los
-              traslados. Están muy al pendiente hasta el final de tu destino. Si tienes dudas te contestan rápido y te
-              dan asesoría inmediata. Los recomiendo ampliamente y volveré a La Casa del Viaje.
+              Muy agradable, atención muy profesional, apoyo en todo momento tanto al iniciar el viaje como en todos los traslados. Están muy al pendiente hasta el final de tu destino. Si tienes dudas te contestan rápido y te dan asesoría inmediata. Los recomiendo ampliamente y volveré a La Casa del Viaje.
             </p>
           </div>
         </div>
 
-        <!-- Reseña 2 -->
         <div class="swiper-slide">
           <div class="review-card">
             <div class="review-header">
-              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Eduardo Hernández">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Eduardo Hernández" loading="lazy" width="60" height="60">
               <div>
                 <h4>Eduardo Hernández</h4>
                 <div class="stars">
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
               </div>
             </div>
@@ -657,63 +588,53 @@
           </div>
         </div>
 
-        <!-- Reseña 3 -->
         <div class="swiper-slide">
           <div class="review-card">
             <div class="review-header">
-              <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Steph Terron">
+              <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Steph Terron" loading="lazy" width="60" height="60">
               <div>
                 <h4>Steph Terron</h4>
                 <div class="stars">
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
               </div>
             </div>
             <p>
-              Fue una grata experiencia en general. Si bien previo al viaje tuvimos algunas dudas, durante el mismo todo
-              fue conforme a lo que nos ofrecieron. El guía se robó nuestro corazón y tuvimos la fortuna de compartir
-              con un buen grupo de viajeros.
+              Fue una grata experiencia en general. Si bien previo al viaje tuvimos algunas dudas, durante el mismo todo fue conforme a lo que nos ofrecieron. El guía se robó nuestro corazón y tuvimos la fortuna de compartir con un buen grupo de viajeros.
             </p>
           </div>
         </div>
 
-        <!-- Reseña 4 -->
         <div class="swiper-slide">
           <div class="review-card">
             <div class="review-header">
-              <img src="https://randomuser.me/api/portraits/women/47.jpg" alt="Esther Barrón">
+              <img src="https://randomuser.me/api/portraits/women/47.jpg" alt="Esther Barrón" loading="lazy" width="60" height="60">
               <div>
                 <h4>Esther Barrón</h4>
                 <div class="stars">
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
               </div>
             </div>
             <p>
-              Viajar con esta agencia fue una experiencia muy agradable, todo completamente organizado y cumpliendo a la
-              totalidad lo que te ofrecen. ¡Vamos por mássss!
+              Viajar con esta agencia fue una experiencia muy agradable, todo completamente organizado y cumpliendo a la totalidad lo que te ofrecen. ¡Vamos por másss!
             </p>
           </div>
         </div>
 
-        <!-- Reseña 5 -->
         <div class="swiper-slide">
           <div class="review-card">
             <div class="review-header">
-              <img src="https://randomuser.me/api/portraits/men/15.jpg" alt="O. R.">
+              <img src="https://randomuser.me/api/portraits/men/15.jpg" alt="O. R." loading="lazy" width="60" height="60">
               <div>
                 <h4>O. R.</h4>
                 <div class="stars">
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
               </div>
             </div>
             <p>
-              Excelente servicio y atención personalizada. Muy buen lugar a donde quieras viajar, ellos lo resuelven.
-              ¡Estás en las mejores manos!
+              Excelente servicio y atención personalizada. Muy buen lugar a donde quieras viajar, ellos lo resuelven. ¡Estás en las mejores manos!
             </p>
           </div>
         </div>
@@ -721,133 +642,116 @@
     </div>
 
     <div class="reviews-btn">
-      <a href="https://www.google.com/maps/place/La+Casa+Del+Viaje" target="_blank" class="google-btn">
+      <a href="https://www.google.com/maps/place/La+Casa+Del+Viaje" target="_blank" rel="noopener noreferrer" class="google-btn">
         Ver más reseñas en Google
       </a>
     </div>
   </section>
 
-
-
-
-
-
-
+  <!-- Footer -->
   <footer class="footer">
-
     <div class="footer-top">
       <h2>Somos miembros de:</h2>
       <div class="footer-logos">
-        <img src="https://lacasadelviaje.com.mx/wp-content/uploads/2024/10/logo-gma.png">
-        <img src="https://lacasadelviaje.com.mx/wp-content/uploads/2024/10/confetur.png">
-        <img src="https://lacasadelviaje.com.mx/wp-content/uploads/2024/10/agencia-de-viajes.png">
-        <img src="https://lacasadelviaje.com.mx/wp-content/uploads/2024/10/metro.png">
-        <img src="https://lacasadelviaje.com.mx/wp-content/uploads/2024/11/verifica-y-viaja-1.png">
-        <img src="https://lacasadelviaje.com.mx/wp-content/uploads/2025/01/TXT-AVISO-DE-PRIVACIDAD-1024x364-1.png">
+        <img src="https://lacasadelviaje.com.mx/wp-content/uploads/2024/10/logo-gma.png" alt="GMA" loading="lazy" width="155" height="auto">
+        <img src="https://lacasadelviaje.com.mx/wp-content/uploads/2024/10/confetur.png" alt="Confetur" loading="lazy" width="155" height="auto">
+        <img src="https://lacasadelviaje.com.mx/wp-content/uploads/2024/10/agencia-de-viajes.png" alt="Agencia de Viajes" loading="lazy" width="155" height="auto">
+        <img src="https://lacasadelviaje.com.mx/wp-content/uploads/2024/10/metro.png" alt="Metro" loading="lazy" width="155" height="auto">
+        <img src="https://lacasadelviaje.com.mx/wp-content/uploads/2024/11/verifica-y-viaja-1.png" alt="Verifica y Viaja" loading="lazy" width="155" height="auto">
+        <img src="https://lacasadelviaje.com.mx/wp-content/uploads/2025/01/TXT-AVISO-DE-PRIVACIDAD-1024x364-1.png" alt="Aviso de Privacidad" loading="lazy" width="155" height="auto">
       </div>
     </div>
 
     <div class="footer-bottom">
       <div class="social-icons">
-        <a href="https://www.facebook.com/casadelviaje">
+        <a href="https://www.facebook.com/casadelviaje" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
           <i class="fab fa-facebook-f"></i>
         </a>
-
-        <a href="https://www.linkedin.com/company/la-casa-del-viaje-operadora-mayorista/">
+        <a href="https://www.linkedin.com/company/la-casa-del-viaje-operadora-mayorista/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <i class="fab fa-linkedin-in"></i>
         </a>
-
-        <a href="https://www.youtube.com/c/LaCasadelViajeYT">
+        <a href="https://www.youtube.com/c/LaCasadelViajeYT" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
           <i class="fab fa-youtube"></i>
         </a>
-
-        <a href="https://www.instagram.com/lacasadelviaje_mexico/">
+        <a href="https://www.instagram.com/lacasadelviaje_mexico/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
-
-        <a href="https://www.tiktok.com/@lacasadelviajeoficial">
+        <a href="https://www.tiktok.com/@lacasadelviajeoficial" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
           <i class="fab fa-tiktok"></i>
         </a>
       </div>
       <p>© Copyright 2024 <strong>LA CASA DEL VIAJE</strong>, NUESTRA CASA ES EL MUNDO.</p>
     </div>
-
-    <!-- Botón Scroll to Top -->
-    <button id="scrollToTop" class="scroll-to-top" aria-label="Volver arriba">
-      <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Botón Flotante de Reserva -->
-    <button class="btn-reservar-flotante" id="btnReservar">
-      <i class="fas fa-calendar-check"></i>
-      <span>Reservar</span>
-    </button>
-
-    <!-- Modal del Formulario -->
-    <div class="modal-overlay" id="modalReserva">
-      <div class="modal-container">
-        <!-- Botón cerrar -->
-        <button class="modal-close" id="btnCerrarModal">
-          <i class="fas fa-times"></i>
-        </button>
-
-        <!-- Contenido del modal -->
-        <div class="modal-header">
-          <h2><i class="fas fa-person-hiking"></i> Reserva tu Aventura</h2>
-          <p>Completa el formulario y te contactaremos en menos de 24 horas</p>
-        </div>
-
-        <div class="modal-body">
-          <form id="modalBookingForm">
-            <div class="form-group">
-              <label><i class="fas fa-user"></i> Nombre Completo</label>
-              <input type="text" required placeholder="Juan Pérez">
-            </div>
-
-            <div class="form-group">
-              <label><i class="fas fa-envelope"></i> Email</label>
-              <input type="email" required placeholder="tu@email.com">
-            </div>
-
-            <div class="form-group">
-              <label><i class="fas fa-phone"></i> Teléfono</label>
-              <input type="tel" required placeholder="(123) 456-7890">
-            </div>
-
-            <div class="form-group">
-              <label><i class="fas fa-users"></i> Número de Viajeros</label>
-              <select required>
-                <option value="">Selecciona</option>
-                <option value="1">1 persona</option>
-                <option value="2">2 personas</option>
-                <option value="3">3 personas</option>
-                <option value="4">4 personas</option>
-                <option value="5+">5+ personas</option>
-              </select>
-            </div>
-
-            <button type="submit" class="btn-submit-modal">
-              <i class="fas fa-paper-plane"></i>
-              Enviar Solicitud
-            </button>
-          </form>
-        </div>
-
-        <div class="modal-footer">
-          <p><i class="fas fa-shield-alt"></i> Tus datos están seguros con nosotros</p>
-        </div>
-      </div>
-    </div>
-
   </footer>
 
-  <!-- Swiper JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+  <!-- Botón Scroll to Top -->
+  <button id="scrollToTop" class="scroll-to-top" aria-label="Volver arriba">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
-  <script src="script.js"></script>
+  <!-- Botón Flotante de Reserva -->
+  <button class="btn-reservar-flotante" id="btnReservar" aria-label="Abrir formulario de reserva">
+    <i class="fas fa-calendar-check"></i>
+    <span>Reservar</span>
+  </button>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+  <!-- Modal del Formulario -->
+  <div class="modal-overlay" id="modalReserva" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-container">
+      <button class="modal-close" id="btnCerrarModal" aria-label="Cerrar modal">
+        <i class="fas fa-times"></i>
+      </button>
 
+      <div class="modal-header">
+        <h2 id="modalTitle"><i class="fas fa-person-hiking"></i> Reserva tu Aventura</h2>
+        <p>Completa el formulario y te contactaremos en menos de 24 horas</p>
+      </div>
+
+      <div class="modal-body">
+        <form id="modalBookingForm">
+          <div class="form-group">
+            <label for="modalNombre"><i class="fas fa-user"></i> Nombre Completo</label>
+            <input type="text" id="modalNombre" name="nombre" required placeholder="Juan Pérez" autocomplete="name">
+          </div>
+
+          <div class="form-group">
+            <label for="modalEmail"><i class="fas fa-envelope"></i> Email</label>
+            <input type="email" id="modalEmail" name="email" required placeholder="tu@email.com" autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <label for="modalTelefono"><i class="fas fa-phone"></i> Teléfono</label>
+            <input type="tel" id="modalTelefono" name="telefono" required placeholder="(123) 456-7890" autocomplete="tel">
+          </div>
+
+          <div class="form-group">
+            <label for="modalViajeros"><i class="fas fa-users"></i> Número de Viajeros</label>
+            <select id="modalViajeros" name="viajeros" required>
+              <option value="">Selecciona</option>
+              <option value="1">1 persona</option>
+              <option value="2">2 personas</option>
+              <option value="3">3 personas</option>
+              <option value="4">4 personas</option>
+              <option value="5+">5+ personas</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-submit-modal">
+            <i class="fas fa-paper-plane"></i>
+            Enviar Solicitud
+          </button>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <p><i class="fas fa-shield-alt"></i> Tus datos están seguros con nosotros</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+  <script defer src="script.js"></script>
 </body>
 
 </html>

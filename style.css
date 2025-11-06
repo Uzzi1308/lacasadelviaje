@@ -156,6 +156,7 @@ nav {
   display: block;
   color: #333;
   margin-bottom: 0.5rem;
+  padding-left: 15px;
   font-weight: 500;
 }
 
@@ -956,6 +957,7 @@ nav {
   color: #777;
   margin: 0 10px;
   font-size: 18px;
+  text-decoration: none;
   transition: color 0.3s;
 }
 
@@ -973,7 +975,7 @@ nav {
 .scroll-to-top {
   position: fixed;
   bottom: 30px;
-  right: 30px;
+  left: 30px;
   width: 50px;
   height: 50px;
   background: linear-gradient(135deg, var(--primary) 0%, #ff5a56 100%);
@@ -1246,7 +1248,7 @@ nav {
     width: 45px;
     height: 45px;
     bottom: 20px;
-    right: 20px;
+    left: 20px;
     font-size: 1rem;
   }
 }
@@ -1684,7 +1686,7 @@ nav {
     width: 50px;
     height: 50px;
     bottom: 30px;
-    right: 30px;
+    left: 30px;
   }
 }
 
@@ -1696,7 +1698,7 @@ nav {
     width: 40px;
     height: 40px;
     bottom: 15px;
-    right: 15px;
+    left: 15px;
     font-size: 0.9rem;
   }
 
@@ -1957,6 +1959,7 @@ section {
 .destino li i {
   position: absolute;
   left: 0;
+  top: 9px;
   color: var(--primary);
 }
 
@@ -2083,7 +2086,7 @@ section {
 .btn-reservar-flotante {
   position: fixed;
   bottom: 30px;
-  left: 30px;
+  right: 30px;
   background: linear-gradient(135deg, var(--primary) 0%, var(--secundary) 100%);
   color: white;
   border: none;
@@ -2407,7 +2410,7 @@ section {
 @media (max-width: 768px) {
   .btn-reservar-flotante {
     bottom: 20px;
-    left: 20px;
+    right: 20px;
     padding: 0.9rem 1.5rem;
     font-size: 1rem;
   }
@@ -2456,7 +2459,7 @@ section {
 @media (max-width: 480px) {
   .btn-reservar-flotante {
     bottom: 15px;
-    left: 15px;
+    right: 15px;
     width: 55px;
     height: 55px;
   }
