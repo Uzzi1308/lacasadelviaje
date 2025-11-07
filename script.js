@@ -25,37 +25,41 @@ const CONFIG = {
 // ====================================
 const initSwipers = () => {
   // Itinerary Swiper
-  new Swiper(".itinerarySwiper", {
-    effect: "coverflow",
-    centeredSlides: true,
-    slidesPerView: "auto",
-    loop: true,
-    allowTouchMove: false,
-    autoplay: { delay: 4000, ...CONFIG.autoplay },
-    coverflowEffect: {
-      rotate: 20,
-      stretch: 0,
-      depth: 100,
-      modifier: 1,
-      slideShadows: false
-    },
-    pagination: { el: ".swiper-pagination", clickable: true },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
-    },
-    breakpoints: CONFIG.breakpoints.itinerary
-  });
+  if (document.querySelector(".itinerarySwiper")) {
+    new Swiper(".itinerarySwiper", {
+      effect: "coverflow",
+      centeredSlides: true,
+      slidesPerView: "auto",
+      loop: true,
+      allowTouchMove: false,
+      autoplay: { delay: 4000, ...CONFIG.autoplay },
+      coverflowEffect: {
+        rotate: 20,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: false
+      },
+      pagination: { el: ".swiper-pagination", clickable: true },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      },
+      breakpoints: CONFIG.breakpoints.itinerary
+    });
+  }
 
   // Reviews Swiper
-  new Swiper(".reviewsSwiper", {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    allowTouchMove: false,
-    autoplay: { delay: 3500, ...CONFIG.autoplay },
-    breakpoints: CONFIG.breakpoints.reviews
-  });
+  if (document.querySelector(".reviewsSwiper")) {
+    new Swiper(".reviewsSwiper", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      allowTouchMove: false,
+      autoplay: { delay: 3500, ...CONFIG.autoplay },
+      breakpoints: CONFIG.breakpoints.reviews
+    });
+  }
 };
 
 // ====================================
@@ -64,7 +68,6 @@ const initSwipers = () => {
 const initScrollBehaviors = () => {
   const navbar = document.querySelector('nav');
   const scrollToTopBtn = document.getElementById('scrollToTop');
-  let scrollTimeout;
 
   // Navbar contraído y Scroll to Top
   window.addEventListener('scroll', () => {
@@ -88,8 +91,8 @@ const initScrollBehaviors = () => {
 // ====================================
 const initScrollAnimations = () => {
   const observerOptions = {
-    threshold: 0.2, // Aparece cuando 20% es visible
-    rootMargin: '0px 0px -100px 0px' // Ajuste para activar antes
+    threshold: 0.2,
+    rootMargin: '0px 0px -100px 0px'
   };
 
   const observer = new IntersectionObserver((entries) => {
@@ -110,13 +113,12 @@ const initScrollAnimations = () => {
 };
 
 // ====================================
-// MODAL DE RESERVA
+// MODAL DE RESERVA (MANTENIDO)
 // ====================================
 const initModal = () => {
   const modal = document.getElementById('modalReserva');
   const btnOpen = document.getElementById('btnReservar');
   const btnClose = document.getElementById('btnCerrarModal');
-  const form = document.getElementById('modalBookingForm');
 
   if (!modal) return;
 
@@ -163,168 +165,50 @@ const initModal = () => {
 };
 
 // ====================================
-// CARRUSEL CON MINIATURAS - MEJORADA
-// ====================================
-const initExperienceCarousel = () => {
-  const container = document.querySelector('.experience-carousel');
-  if (!container) return;
-
-  const images = container.querySelectorAll('.carousel-img');
-  const thumbs = container.querySelectorAll('.thumb');
-  let currentSlide = 0;
-  let autoplayInterval;
-
-  const showSlide = (index) => {
-    images.forEach((img, i) => {
-      img.classList.toggle('active', i === index);
-    });
-    thumbs.forEach((thumb, i) => {
-      thumb.classList.toggle('active', i === index);
-    });
-    currentSlide = index;
-  };
-
-  const nextSlide = () => {
-    const nextIndex = (currentSlide + 1) % images.length;
-    showSlide(nextIndex);
-  };
-
-  const startAutoplay = () => {
-    autoplayInterval = setInterval(nextSlide, 4000);
-  };
-
-  const stopAutoplay = () => {
-    clearInterval(autoplayInterval);
-  };
-
-  // Auto-play
-  startAutoplay();
-
-  // Click en miniaturas
-  thumbs.forEach((thumb, index) => {
-    thumb.addEventListener('click', () => {
-      showSlide(index);
-      stopAutoplay();
-      startAutoplay();
-    });
-  });
-
-  // Pausar auto-play al hacer hover
-  container.addEventListener('mouseenter', stopAutoplay);
-  container.addEventListener('mouseleave', startAutoplay);
-};
-
-// ====================================
-// ENVÍO DE FORMULARIOS CON ESTADOS
+// FORMULARIOS SIMPLIFICADOS (SOLO UI)
 // ====================================
 const initForms = () => {
   const forms = document.querySelectorAll('form[id="bookingForm"], form[id="modalBookingForm"]');
   
   forms.forEach(form => {
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
       
-      const submitBtn = form.querySelector('.btn-submit-modal');
+      // Solo muestra un mensaje en consola, sin enviar datos
+      console.log('Formulario enviado (simulación)');
+      
+      const submitBtn = form.querySelector('.btn-submit, .btn-submit-modal');
       const originalText = submitBtn.innerHTML;
       
-      // Datos del formulario
-      const formData = new FormData(form);
-      const data = {
-        nombre: formData.get('nombre'),
-        email: formData.get('email'),
-        telefono: formData.get('telefono'),
-        viajeros: formData.get('viajeros')
-      };
-      
-      // Estado de carga
+      // Simular envío
       submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
       submitBtn.disabled = true;
       
-      try {
-        const response = await fetch('send_email.php', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: formData
-        });
+      setTimeout(() => {
+        submitBtn.innerHTML = '<i class="fas fa-check"></i> ¡Enviado!';
+        submitBtn.style.background = '#28a745';
         
-        const result = await response.json();
-        
-        if (result.success) {
-          // Estado de éxito
-          submitBtn.innerHTML = '<i class="fas fa-check"></i> ¡Enviado!';
-          submitBtn.style.background = '#28a745';
-          
-          // Mostrar mensaje de éxito
-          showNotification(result.message, 'success');
-          
-          // Resetear después de 2 segundos
-          setTimeout(() => {
-            form.reset();
-            submitBtn.innerHTML = originalText;
-            submitBtn.style.background = '';
-            submitBtn.disabled = false;
-            
-            // Cerrar modal si está abierto
-            const modal = document.getElementById('modalReserva');
-            if (modal.classList.contains('active')) {
-              closeModal();
-            }
-          }, 2000);
-        } else {
-          throw new Error(result.message);
-        }
-      } catch (error) {
-        // Estado de error
-        submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error';
-        submitBtn.style.background = '#dc3545';
-        
-        showNotification(error.message, 'error');
-        
+        // Resetear después de 2 segundos
         setTimeout(() => {
+          form.reset();
           submitBtn.innerHTML = originalText;
           submitBtn.style.background = '';
           submitBtn.disabled = false;
-        }, 3000);
-      }
+          
+          // Cerrar modal si está abierto
+          const modal = document.getElementById('modalReserva');
+          if (modal?.classList.contains('active')) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        }, 2000);
+      }, 1500);
     });
   });
 };
 
 // ====================================
-// NOTIFICACIONES
-// ====================================
-const showNotification = (message, type = 'info') => {
-  // Remover notificación existente
-  const existingNotification = document.querySelector('.notification');
-  if (existingNotification) {
-    existingNotification.remove();
-  }
-  
-  const notification = document.createElement('div');
-  notification.className = `notification notification-${type}`;
-  notification.innerHTML = `
-    <div class="notification-content">
-      <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-triangle' : 'info-circle'}"></i>
-      <span>${message}</span>
-    </div>
-  `;
-  
-  document.body.appendChild(notification);
-  
-  // Animación de entrada
-  setTimeout(() => notification.classList.add('show'), 100);
-  
-  // Auto-remover después de 5 segundos
-  setTimeout(() => {
-    notification.classList.remove('show');
-    setTimeout(() => notification.remove(), 300);
-  }, 5000);
-};
-
-// ====================================
-// HOVER EN PRECIOS
+// HOVER EN PRECIOS (MANTENIDO)
 // ====================================
 const initPriceHover = () => {
   const priceCards = document.querySelectorAll('.price-card');
@@ -342,6 +226,41 @@ const initPriceHover = () => {
       priceElement.innerHTML = originalPrice;
       card.style.transform = '';
     });
+    
+    // Click para abrir modal
+    card.addEventListener('click', () => {
+      const modal = document.getElementById('modalReserva');
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+};
+
+// ====================================
+// MEJORAS DE USABILIDAD PARA FORMULARIOS 
+// ====================================
+const initFormEnhancements = () => {
+  // Formateo automático de teléfono
+  const phoneInputs = document.querySelectorAll('input[type="tel"]');
+  
+  phoneInputs.forEach(input => {
+    input.addEventListener('input', (e) => {
+      let value = e.target.value.replace(/\D/g, '');
+      
+      if (value.length > 0) {
+        if (value.length <= 3) {
+          value = `(${value}`;
+        } else if (value.length <= 6) {
+          value = `(${value.slice(0,3)}) ${value.slice(3)}`;
+        } else {
+          value = `(${value.slice(0,3)}) ${value.slice(3,6)}-${value.slice(6,10)}`;
+        }
+      }
+      
+      e.target.value = value;
+    });
   });
 };
 
@@ -353,9 +272,9 @@ const init = () => {
   initScrollBehaviors();
   initScrollAnimations();
   initModal();
-  initExperienceCarousel();
   initForms();
   initPriceHover();
+  initFormEnhancements();
 };
 
 // Ejecutar cuando el DOM esté listo
