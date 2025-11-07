@@ -178,6 +178,7 @@ const init = () => {
   initScrollBehaviors();
   initScrollAnimations();
   initModal();
+  initExperienceCarousel();
 };
 
 // Ejecutar cuando el DOM esté listo
@@ -186,3 +187,67 @@ if (document.readyState === 'loading') {
 } else {
   init();
 }
+
+
+
+
+// Carrusel con Miniaturas
+const initExperienceCarousel = () => {
+  const container = document.querySelector('.experience-image');
+  if (!container) return;
+
+  const images = container.querySelectorAll('.carousel-img');
+  const thumbs = container.querySelectorAll('.thumb');
+  let currentSlide = 0;
+  let autoplayInterval;
+
+  const showSlide = (index) => {
+    images.forEach((img, i) => {
+      img.classList.toggle('active', i === index);
+    });
+    thumbs.forEach((thumb, i) => {
+      thumb.classList.toggle('active', i === index);
+    });
+  };
+
+  const nextSlide = () => {
+    currentSlide = (currentSlide + 1) % images.length;
+    showSlide(currentSlide);
+  };
+
+  const startAutoplay = () => {
+    autoplayInterval = setInterval(nextSlide, 4000);
+  };
+
+  const stopAutoplay = () => {
+    clearInterval(autoplayInterval);
+  };
+
+  // Auto-play
+  startAutoplay();
+
+  // Click en miniaturas
+  thumbs.forEach((thumb, index) => {
+    thumb.addEventListener('click', () => {
+      currentSlide = index;
+      showSlide(currentSlide);
+      stopAutoplay();
+      startAutoplay(); // Reiniciar auto-play después del click
+    });
+  });
+
+  // Pausar auto-play al hacer hover en las miniaturas
+  container.addEventListener('mouseenter', stopAutoplay);
+  container.addEventListener('mouseleave', startAutoplay);
+};
+
+
+// Ejecutar al cargar la página
+document.addEventListener('DOMContentLoaded', init);
+
+
+
+
+
+
+
