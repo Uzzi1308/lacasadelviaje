@@ -146,15 +146,7 @@ const initModal = () => {
     }
   });
 
-  // Submit form
-  form?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('✅ ¡Solicitud enviada! Te contactaremos pronto.');
-    closeModal();
-    form.reset();
-  });
-
-// Botones inline y tarjetas de precio
+  // Botones inline y tarjetas de precio
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('.btn-reservar-inline');
     const priceCard = e.target.closest('.price-card');
@@ -171,29 +163,10 @@ const initModal = () => {
 };
 
 // ====================================
-// INICIALIZACIÓN PRINCIPAL
+// CARRUSEL CON MINIATURAS - MEJORADA
 // ====================================
-const init = () => {
-  initSwipers();
-  initScrollBehaviors();
-  initScrollAnimations();
-  initModal();
-  initExperienceCarousel();
-};
-
-// Ejecutar cuando el DOM esté listo
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
-} else {
-  init();
-}
-
-
-
-
-// Carrusel con Miniaturas
 const initExperienceCarousel = () => {
-  const container = document.querySelector('.experience-image');
+  const container = document.querySelector('.experience-carousel');
   if (!container) return;
 
   const images = container.querySelectorAll('.carousel-img');
@@ -208,11 +181,12 @@ const initExperienceCarousel = () => {
     thumbs.forEach((thumb, i) => {
       thumb.classList.toggle('active', i === index);
     });
+    currentSlide = index;
   };
 
   const nextSlide = () => {
-    currentSlide = (currentSlide + 1) % images.length;
-    showSlide(currentSlide);
+    const nextIndex = (currentSlide + 1) % images.length;
+    showSlide(nextIndex);
   };
 
   const startAutoplay = () => {
@@ -229,25 +203,164 @@ const initExperienceCarousel = () => {
   // Click en miniaturas
   thumbs.forEach((thumb, index) => {
     thumb.addEventListener('click', () => {
-      currentSlide = index;
-      showSlide(currentSlide);
+      showSlide(index);
       stopAutoplay();
-      startAutoplay(); // Reiniciar auto-play después del click
+      startAutoplay();
     });
   });
 
-  // Pausar auto-play al hacer hover en las miniaturas
+  // Pausar auto-play al hacer hover
   container.addEventListener('mouseenter', stopAutoplay);
   container.addEventListener('mouseleave', startAutoplay);
 };
 
+// ====================================
+// ENVÍO DE FORMULARIOS CON ESTADOS
+// ====================================
+const initForms = () => {
+  const forms = document.querySelectorAll('form[id="bookingForm"], form[id="modalBookingForm"]');
+  
+  forms.forEach(form => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const submitBtn = form.querySelector('.btn-submit-modal');
+      const originalText = submitBtn.innerHTML;
+      
+      // Datos del formulario
+      const formData = new FormData(form);
+      const data = {
+        nombre: formData.get('nombre'),
+        email: formData.get('email'),
+        telefono: formData.get('telefono'),
+        viajeros: formData.get('viajeros')
+      };
+      
+      // Estado de carga
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+      submitBtn.disabled = true;
+      
+      try {
+        const response = await fetch('send_email.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: formData
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          // Estado de éxito
+          submitBtn.innerHTML = '<i class="fas fa-check"></i> ¡Enviado!';
+          submitBtn.style.background = '#28a745';
+          
+          // Mostrar mensaje de éxito
+          showNotification(result.message, 'success');
+          
+          // Resetear después de 2 segundos
+          setTimeout(() => {
+            form.reset();
+            submitBtn.innerHTML = originalText;
+            submitBtn.style.background = '';
+            submitBtn.disabled = false;
+            
+            // Cerrar modal si está abierto
+            const modal = document.getElementById('modalReserva');
+            if (modal.classList.contains('active')) {
+              closeModal();
+            }
+          }, 2000);
+        } else {
+          throw new Error(result.message);
+        }
+      } catch (error) {
+        // Estado de error
+        submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error';
+        submitBtn.style.background = '#dc3545';
+        
+        showNotification(error.message, 'error');
+        
+        setTimeout(() => {
+          submitBtn.innerHTML = originalText;
+          submitBtn.style.background = '';
+          submitBtn.disabled = false;
+        }, 3000);
+      }
+    });
+  });
+};
 
-// Ejecutar al cargar la página
-document.addEventListener('DOMContentLoaded', init);
+// ====================================
+// NOTIFICACIONES
+// ====================================
+const showNotification = (message, type = 'info') => {
+  // Remover notificación existente
+  const existingNotification = document.querySelector('.notification');
+  if (existingNotification) {
+    existingNotification.remove();
+  }
+  
+  const notification = document.createElement('div');
+  notification.className = `notification notification-${type}`;
+  notification.innerHTML = `
+    <div class="notification-content">
+      <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-triangle' : 'info-circle'}"></i>
+      <span>${message}</span>
+    </div>
+  `;
+  
+  document.body.appendChild(notification);
+  
+  // Animación de entrada
+  setTimeout(() => notification.classList.add('show'), 100);
+  
+  // Auto-remover después de 5 segundos
+  setTimeout(() => {
+    notification.classList.remove('show');
+    setTimeout(() => notification.remove(), 300);
+  }, 5000);
+};
 
+// ====================================
+// HOVER EN PRECIOS
+// ====================================
+const initPriceHover = () => {
+  const priceCards = document.querySelectorAll('.price-card');
+  
+  priceCards.forEach(card => {
+    const priceElement = card.querySelector('.price');
+    const originalPrice = priceElement.innerHTML;
+    
+    card.addEventListener('mouseenter', () => {
+      priceElement.innerHTML = '<span style="font-size: 0.8em;">¡Reserva Ahora!</span>';
+      card.style.transform = 'translateY(-8px) scale(1.02)';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      priceElement.innerHTML = originalPrice;
+      card.style.transform = '';
+    });
+  });
+};
 
+// ====================================
+// INICIALIZACIÓN PRINCIPAL
+// ====================================
+const init = () => {
+  initSwipers();
+  initScrollBehaviors();
+  initScrollAnimations();
+  initModal();
+  initExperienceCarousel();
+  initForms();
+  initPriceHover();
+};
 
-
-
-
-
+// Ejecutar cuando el DOM esté listo
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
