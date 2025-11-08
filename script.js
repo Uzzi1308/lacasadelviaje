@@ -20,9 +20,157 @@ const CONFIG = {
   }
 };
 
-// ====================================
+
+// CONFIGURACIÓN DE FORMULARIOS 
+
+const FORM_CONFIG = {
+  // MODO: 'simulacion' | 'email' | 'api' | 'google-sheets'
+  modo: 'simulacion',
+  
+  // CONFIGURAR ESTAS URLs SEGÚN LAS NECESIDAD
+  endpoints: {
+    api: 'https://tu-api.com/reservas',
+    email: 'https://tu-servidor.com/enviar-email',
+    googleSheets: 'https://script.google.com/macros/s/.../exec'
+  },
+  
+  // Campos que se enviarán
+  fieldMapping: {
+    nombre: 'name',
+    email: 'email', 
+    telefono: 'phone',
+    viajeros: 'travelers'
+  },
+  
+  // Configuración adicional
+  debug: true
+};
+
+//----------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------
+// SERVICIO DE ENVÍO DE FORMULARIOS
+
+const FormService = {
+  async enviarFormulario(datos) {
+    console.log('📤 Enviando formulario...', datos);
+    
+    switch(FORM_CONFIG.modo) {
+      case 'simulacion':
+        return await this._simularEnvio(datos);
+        
+      case 'email':
+        return await this._enviarPorEmail(datos);
+        
+      case 'api':
+        return await this._enviarPorAPI(datos);
+        
+      case 'google-sheets':
+        return await this._enviarGoogleSheets(datos);
+        
+      default:
+        return await this._simularEnvio(datos);
+    }
+  },
+  
+  // Simulación (modo actual)
+  async _simularEnvio(datos) {
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    return { 
+      success: true, 
+      message: 'Formulario enviado (simulación)',
+      mode: 'simulacion'
+    };
+  },
+  
+  // Envío por Email (PHP/Node.js)
+  async _enviarPorEmail(datos) {
+    try {
+      const response = await fetch(FORM_CONFIG.endpoints.email, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          to: 'reservas@cliente.com',
+          subject: 'Nueva Reserva - Barrancas del Cobre',
+          data: datos,
+          origen: 'landing-barrancas'
+        })
+      });
+      
+      if (!response.ok) throw new Error('Error en respuesta del servidor');
+      return await response.json();
+    } catch (error) {
+      console.error('Error enviando email:', error);
+      throw new Error('Error enviando el formulario: ' + error.message);
+    }
+  },
+  
+  // Envío a API REST
+  async _enviarPorAPI(datos) {
+    try {
+      const response = await fetch(FORM_CONFIG.endpoints.api, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(this._mapearDatos(datos))
+      });
+      
+      if (!response.ok) throw new Error('Error en respuesta de la API');
+      return await response.json();
+    } catch (error) {
+      console.error('Error conectando con la API:', error);
+      throw new Error('Error conectando con el servidor: ' + error.message);
+    }
+  },
+  
+  // Google Apps Script 
+  async _enviarGoogleSheets(datos) {
+    try {
+      const formData = new FormData();
+      Object.keys(datos).forEach(key => {
+        formData.append(key, datos[key]);
+      });
+      
+      // Agregar timestamp y origen
+      formData.append('timestamp', new Date().toISOString());
+      formData.append('origen', 'barrancas-del-cobre');
+      
+      const response = await fetch(FORM_CONFIG.endpoints.googleSheets, {
+        method: 'POST',
+        body: formData
+      });
+      
+      if (!response.ok) throw new Error('Error en respuesta de Google Sheets');
+      return await response.json();
+    } catch (error) {
+      console.error('Error guardando en Google Sheets:', error);
+      throw new Error('Error guardando los datos: ' + error.message);
+    }
+  },
+  
+  // Mapeo de campos si es necesario
+  _mapearDatos(datos) {
+    const mapeados = {};
+    Object.keys(datos).forEach(key => {
+      const nuevoKey = FORM_CONFIG.fieldMapping[key] || key;
+      mapeados[nuevoKey] = datos[key];
+    });
+    
+    // Agregar metadata
+    mapeados.timestamp = new Date().toISOString();
+    mapeados.origen = 'barrancas-del-cobre';
+    
+    return mapeados;
+  }
+};
+
+//-----------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------
+
 // INICIALIZACIÓN DE SWIPERS
-// ====================================
+
 const initSwipers = () => {
   // Itinerary Swiper
   if (document.querySelector(".itinerarySwiper")) {
@@ -62,9 +210,9 @@ const initSwipers = () => {
   }
 };
 
-// ====================================
+
 // SCROLL BEHAVIORS
-// ====================================
+
 const initScrollBehaviors = () => {
   const navbar = document.querySelector('nav');
   const scrollToTopBtn = document.getElementById('scrollToTop');
@@ -86,9 +234,9 @@ const initScrollBehaviors = () => {
   });
 };
 
-// ====================================
+
 // ANIMACIONES DE APARICIÓN
-// ====================================
+
 const initScrollAnimations = () => {
   const observerOptions = {
     threshold: 0.2,
@@ -112,9 +260,9 @@ const initScrollAnimations = () => {
   elements.forEach(el => observer.observe(el));
 };
 
-// ====================================
-// MODAL DE RESERVA (MANTENIDO)
-// ====================================
+
+// MODAL DE RESERVA
+
 const initModal = () => {
   const modal = document.getElementById('modalReserva');
   const btnOpen = document.getElementById('btnReservar');
@@ -164,52 +312,86 @@ const initModal = () => {
   });
 };
 
-// ====================================
-// FORMULARIOS SIMPLIFICADOS (SOLO UI)
-// ====================================
+// FORMULARIOS 
+
 const initForms = () => {
   const forms = document.querySelectorAll('form[id="bookingForm"], form[id="modalBookingForm"]');
   
   forms.forEach(form => {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      
-      // Solo muestra un mensaje en consola, sin enviar datos
-      console.log('Formulario enviado (simulación)');
       
       const submitBtn = form.querySelector('.btn-submit, .btn-submit-modal');
       const originalText = submitBtn.innerHTML;
+      const originalBg = submitBtn.style.background;
       
-      // Simular envío
+      // Obtener datos del formulario
+      const formData = new FormData(form);
+      const datos = Object.fromEntries(formData);
+      
+      // Validación básica
+      if (!datos.nombre || !datos.email || !datos.telefono) {
+        alert('Por favor completa todos los campos requeridos');
+        return;
+      }
+      
+      // Estado: enviando
       submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
       submitBtn.disabled = true;
       
-      setTimeout(() => {
-        submitBtn.innerHTML = '<i class="fas fa-check"></i> ¡Enviado!';
-        submitBtn.style.background = '#28a745';
+      try {
+        // Usar el servicio de formularios
+        const resultado = await FormService.enviarFormulario(datos);
         
-        // Resetear después de 2 segundos
-        setTimeout(() => {
-          form.reset();
-          submitBtn.innerHTML = originalText;
-          submitBtn.style.background = '';
-          submitBtn.disabled = false;
+        if (resultado.success) {
+          // Éxito
+          submitBtn.innerHTML = '<i class="fas fa-check"></i> ¡Enviado!';
+          submitBtn.style.background = '#28a745';
           
-          // Cerrar modal si está abierto
-          const modal = document.getElementById('modalReserva');
-          if (modal?.classList.contains('active')) {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
+          // Mostrar mensaje de éxito
+          if (FORM_CONFIG.modo === 'simulacion') {
+            console.log('✅ Formulario procesado en modo simulación');
           }
-        }, 2000);
-      }, 1500);
+          
+          // Reset después de 2 segundos
+          setTimeout(() => {
+            form.reset();
+            submitBtn.innerHTML = originalText;
+            submitBtn.style.background = originalBg;
+            submitBtn.disabled = false;
+            
+            // Cerrar modal si está abierto
+            const modal = document.getElementById('modalReserva');
+            if (modal?.classList.contains('active')) {
+              modal.classList.remove('active');
+              document.body.style.overflow = '';
+            }
+          }, 10000);
+          
+        } else {
+          throw new Error(resultado.message || 'Error en el servidor');
+        }
+        
+      } catch (error) {
+        // Manejo de errores
+        console.error('Error enviando formulario:', error);
+        submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error';
+        submitBtn.style.background = '#dc3545';
+        
+        // Mostrar mensaje de error al usuario
+        setTimeout(() => {
+          alert('Hubo un error al enviar el formulario. Por favor intenta nuevamente.');
+          submitBtn.innerHTML = originalText;
+          submitBtn.style.background = originalBg;
+          submitBtn.disabled = false;
+        }, 500);
+      }
     });
   });
 };
 
-// ====================================
 // HOVER EN PRECIOS (MANTENIDO)
-// ====================================
+
 const initPriceHover = () => {
   const priceCards = document.querySelectorAll('.price-card');
   
@@ -238,9 +420,8 @@ const initPriceHover = () => {
   });
 };
 
-// ====================================
 // MEJORAS DE USABILIDAD PARA FORMULARIOS 
-// ====================================
+
 const initFormEnhancements = () => {
   // Formateo automático de teléfono
   const phoneInputs = document.querySelectorAll('input[type="tel"]');
@@ -283,3 +464,26 @@ if (document.readyState === 'loading') {
 } else {
   init();
 }
+
+
+// INSTRUCCIONES RÁPIDAS PARA EL CLIENTE:
+
+// PARA CONFIGURAR EL FORMULARIO EN PRODUCCIÓN:
+
+// 1. CAMBIAR EL MODO en FORM_CONFIG.modo:
+//    - 'simulacion' → Solo pruebas (actual)
+//    - 'email' → Envío por correo
+//    - 'api' → Conexión a API
+//    - 'google-sheets' → Guardar en Google Sheets
+
+// 2. CONFIGURAR LAS URLs en FORM_CONFIG.endpoints con las direcciones reales
+
+// 3. OPCIONES RECOMENDADAS:
+//    - Google Sheets: Fácil y gratuito
+//    - Email: Para clientes con servidor de correo
+//    - API: Para integración con sistemas existentes
+
+// EJEMPLO PARA GOOGLE SHEETS:
+// FORM_CONFIG.modo = 'google-sheets';
+// FORM_CONFIG.endpoints.googleSheets = 'https://script.google.com/macros/s/ID_DEL_SCRIPT/exec';
+// 
