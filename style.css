@@ -88,7 +88,7 @@ nav {
 .hero {
   margin-top: 65px;
   padding: 2rem 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("img/1.png") center/cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("img2/hero.png") center/cover;
   min-height: auto;
   display: flex;
   align-items: center;
