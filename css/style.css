@@ -2559,3 +2559,7 @@ section {
     font-size: 0.75rem;
   }
 }
+
+#list-important {
+  padding-left: 15px;
+}
