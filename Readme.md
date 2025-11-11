@@ -1,222 +1,247 @@
-﻿# Landing Page-Barrancas del Cobre
+﻿#  Landing Page - Barrancas del Cobre
 
-## Descripción General
+Landing page promocional para el tour "Barrancas del Cobre" de **La Casa del Viaje**. Página responsive con carruseles interactivos, formularios de contacto.
 
-Landing page promocional para el tour "Barrancas del Cobre" de La Casa del Viaje. Desarrollada con HTML, CSS y JavaScript vanilla, bibliotecas como Swiper, font awesome .
+---
+
+##  Tabla de Contenidos
+
+- [Características](#-características)
+- [Tecnologías Utilizadas](#-tecnologías-utilizadas)
+- [Estructura de Archivos](#-estructura-de-archivos)
+- [Instalación en WordPress](#-instalación-en-wordpress)
+- [Integración con Contact Form 7](#-integración-con-contact-form-7)
+- [Configuración](#-configuración)
+- [Secciones de la Página](#-secciones-de-la-página)
+- [Personalización](#-personalización)
+- [Optimización y Performance](#-optimización-y-performance)
+- [Soporte de Navegadores](#-soporte-de-navegadores)
+- [Créditos](#-créditos)
+
+---
+
+##  Características
+
+-  **Diseño  Responsive** - Optimizado para móvil, tablet y desktop
+-  **Carruseles Interactivos** - Itinerario y reseñas con Swiper.js
+-  **Modal de Reserva** - Formulario flotante con animaciones suaves
+-  **Integración Contact Form 7** - Compatible con WordPress
+-  **Optimización SEO** - Meta tags, preload y lazy loading
+-  **Performance** - CSS y JS optimizados, imágenes lazy load
+-  **Accesibilidad** - ARIA labels y navegación por teclado
+---
+
+##  Tecnologías Utilizadas
+
+| Tecnología | Versión | Propósito |
+|------------|---------|-----------|
+| HTML5 | - | Estructura semántica |
+| CSS3 | - | Estilos y animaciones |
+| JavaScript (Vanilla) | ES6+ | Funcionalidades |
+| Swiper.js | 11.0.5 | Carruseles |
+| Font Awesome | 6.4.0 | Iconografía |
+| Contact Form 7 | - | Formularios (WordPress) |
+
+### CDN Utilizados
+```html
+<!-- Swiper -->
+https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css
+https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js
+
+<!-- Font Awesome -->
+https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css
+```
+
+---
+
+##  Instalación en WordPress
+
+### Opción 1: Página Personalizada (Recomendada)
+
+1. **Crear una Plantilla de Página**
+   ```php
+   // En tu tema: wp-content/themes/tu-tema/template-barrancas.php
+   <?php
+   /*
+   Template Name: Barrancas del Cobre
+   */
+   ?>
+   <!DOCTYPE html>
+   <html lang="es">
+   <!-- Pega aquí el contenido de index.html -->
+   </html>
+   ```
+
+2. **Subir Archivos CSS y JS**
+   - Carpeta CSS: `wp-content/themes/tu-tema/css/`
+   - Carpeta JS: `wp-content/themes/tu-tema/js/`
+
+3. **Crear Nueva Página en WordPress**
+   - Páginas → Añadir nueva
+   - Título: "Barrancas del Cobre"
+   - Plantilla: Seleccionar "Barrancas del Cobre"
+   - Publicar
+
+### Opción 2: Plugin HTML personalizado
+
+1. Instalar plugin "Insert HTML Snippet" o similar
+2. Crear nuevo snippet con el contenido HTML
+3. Insertar shortcode en una página
+
+### Opción 3: Página estática externa
+
+1. Subir archivos vía FTP a carpeta `/landing/barrancas/`
+2. Acceder mediante: `tudominio.com/landing/barrancas/`
+
+---
+
+## 📧 Integración con Contact Form 7
 
 
-## Estructura de Archivos
+###  Reemplazar en HTML
 
-proyecto/
-├── index.html
-├── css/
-│   └── style.css
-├── js/
-│   ├── config-global.js
-│   ├── form.js
-│   └── main.js
-├── img/
-│   ├── hero.png
-│   ├── experience.png
-│   ├── day1.png - day5.png
-│   ├── line-chihuahua.png
-│   ├── line-creel.png
-│   ├── line-divisadero.png
-│   ├── line-fuerte.png
-│   ├── tip-frio.png
-│   ├── tip-calor.png
-│   └── tip-comida.png
-└── favicon/
-    ├── favicon.ico
-    ├── favicon.svg
-    ├── apple-touch-icon.png
-    └── site.webmanifest
+**En index.html, línea ~73 (Hero Section):**
+```html
+<!-- ANTES (comentar) -->
+<!--
+<form id="bookingForm">
+  ...
+</form>
+-->
 
+<!-- DESPUÉS -->
+[contact-form-7 id="78854f1" title="Home-Barrancas-del-cobre"]
+```
 
-## Optimización de Imágenes
+**En index.html, línea ~641 (Modal):**
+```html
+<!-- ANTES (comentar) -->
+<!--
+<form id="modalBookingForm">
+  ...
+</form>
+-->
 
-### Imágenes Locales para Optimizar
-
-Actualmente las imágenes se sirven localmente. Para optimizar el rendimiento:
-
-**Subir a CDN o servidor optimizado:**
-- Comprimir todas las imágenes antes de subirlas
-- Usar formatos WebP para mejor compresión
-- Mantener versiones JPG/PNG como fallback
-- Editar la direccion de las imagenes enn html
-
-**Rutas a actualizar en el HTML:**
-- Hero: `img/hero.png` → URL optimizada
-- Experiencia: `img/experience.png` → URL optimizada
-- Días del itinerario: `img/day1.png` a `img/day5.png`
-- Mapas: `img/line-*.png`
-- Tips: `img/tip-*.png`
-
-**Configuración recomendada:**
-- Tamaño máximo: 1920px de ancho para imágenes grandes
-- Calidad: 80-85% para balance calidad/tamaño
-- Lazy loading ya implementado en el código
+<!-- DESPUÉS -->
+[contact-form-7 id="888bb7a" title="Modal-Barrancas-del-cobre"]
+```
 
 
+##  Configuración
 
-## Configuración del Formulario
-
-### Modos de Operación
-
-El formulario soporta 4 modos de envío, configurable en `config-global.js`:
+### Ajustes Globales (config-global.js)
 
 ```javascript
-// config-global.js - Sección FORM_CONFIG
-modo: 'simulacion' // Opciones: 'simulacion' | 'email' | 'api' | 'google-sheets'
+const CONFIG = {
+  autoplay: {
+    disableOnInteraction: false,  // Continuar autoplay después de interacción
+    pauseOnMouseEnter: true       // Pausar al pasar el mouse
+  },
+  
+  scroll: {
+    navbarThreshold: 100,         // Píxeles para contraer navbar
+    scrollToTopThreshold: 300     // Píxeles para mostrar botón "ir arriba"
+  },
+  
+  animations: {
+    threshold: 0.2,               // % visible para activar animación
+    rootMargin: '0px 0px -100px 0px'
+  }
+};
 ```
 
-#### 1. Modo Simulación (Por defecto)
-- Para pruebas y desarrollo
-- No envía datos reales
-- Muestra confirmación visual
-- Ideal para staging
+### Personalizar Velocidades de Carruseles
 
-#### 2. Modo Email
-- Envía datos a endpoint de correo
-- Configurar `endpoints.email` en FORM_CONFIG
-- Requiere backend para procesar el envío
-
-#### 3. Modo API
-- Envía datos a API REST
-- Configurar `endpoints.api` en FORM_CONFIG
-- Incluye mapeo de campos automático
-
-#### 4. Modo Google Sheets
-- Guarda datos en Google Sheets via Apps Script
-- Configurar `endpoints.googleSheets`
-- Requiere script de Google configurado
-
-### Campos del Formulario
-
-- Nombre completo (requerido, mínimo 2 caracteres)
-- Email (requerido, validación de formato)
-- Teléfono (requerido, formateo automático)
-- Número de viajeros (select con opciones)
-
-### Validaciones
-
-- Validación en tiempo real de email
-- Formateo automático de teléfono: (123) 456-7890
-- Validación de longitud mínima en nombre
-- Mensajes de error específicos
-
----
-
-## Instrucciones de Despliegue
-
-### 1. Preparación de Imágenes
-
-```bash
-# Comprimir imágenes locales antes de subir
-# Usar herramientas como:
-- ImageOptim (Mac)
-- Squoosh.app (Web)
-- Photoshop "Exportar para web"
-```
-
-### 2. Configuración de Rutas
-
-Actualizar todas las rutas de imágenes en `index.html`:
-
-```html
-<!-- Cambiar de -->
-<img src="img/hero.png" alt="...">
-
-<!-- A -->
-<img src="https://tudominio.com/img/hero-optimizado.jpg" alt="...">
-```
-
-### 3. Configuración del Formulario
-
-1. Editar `js/config-global.js`
-2. Seleccionar modo de operación
-3. Configurar endpoints según el modo elegido
-4. Actualizar field mapping si es necesario
-
-### 4. Verificación Pre-Despliegue
-
-- [ ] Todas las imágenes optimizadas y en CDN
-- [ ] Rutas de imágenes actualizadas
-- [ ] Formulario configurado correctamente
-- [ ] Favicons implementados
-- [ ] Meta tags actualizados
-- [ ] Pruebas en dispositivos móviles
-
----
-
-## Configuración Técnica
-
-### Variables CSS Principales
-
-```css
-:root {
-  --primary: #CD1915;      /* Color principal */
-  --secundary: #9e1311;    /* Color secundario */
-  --bg-light: #f8f9fa;     /* Fondo claro */
-  --text-dark: #333;       /* Texto oscuro */
+**En main.js, línea ~14 (Itinerario):**
+```javascript
+autoplay: { 
+  delay: 4000,  // Cambiar velocidad (milisegundos)
+  ...CONFIG.autoplay 
 }
 ```
 
-### Breakpoints Responsive
-
-- **Móvil:** 320px - 767px
-- **Tablet:** 768px - 1023px
-- **Desktop:** 1024px - 1439px
-- **Large Desktop:** 1440px+
-
-### Dependencias Externas
-
-- Swiper JS 11.0.5 (carruseles)
-- Font Awesome 6.4.0 (iconos)
-- Google Fonts (tipografía)
+**En main.js, línea ~39 (Reseñas):**
+```javascript
+autoplay: { 
+  delay: 3500,  // Cambiar velocidad (milisegundos)
+  ...CONFIG.autoplay 
+}
+```
 
 ---
 
-## Performance y SEO
+##  Secciones de la Página
 
-### Implementado
+| Sección | Descripción | ID/Clase |
+|---------|-------------|----------|
+| **Navegación** | Menú fijo con logo | `<nav>` |
+| **Hero** | Título + Formulario de reserva | `.hero` |
+| **Experiencia** | Descripción de la empresa | `.experience-section` |
+| **Itinerario** | Carrusel de 5 días | `#itinerario` |
+| **Mapa de Ruta** | Timeline interactivo | `.map-section` |
+| **Tips** | Consejos de viaje | `.featured-destinations` |
+| **Precios** | Tarjetas de precios | `.precios` |
+| **Incluye** | Detalles del tour | `.incluye` |
+| **No Incluye** | Exclusiones | `.no-incluye` |
+| **Otros Destinos** | Tours relacionados | `#destinos` |
+| **Reseñas** | Testimonios de clientes | `#testimonios` |
+| **Footer** | Enlaces y logos | `.footer` |
 
-- Lazy loading en imágenes
-- Preconnect para recursos externos
-- Meta description optimizada
-- Favicons múltiples formatos
-- Imágenes con dimensiones explícitas
-- Estructura semántica HTML
 ---
 
-## Soporte y Mantenimiento
+##  Personalización
 
-### Navegadores Soportados
+### Cambiar Colores
 
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
+**En style.css (líneas 1-11):**
+```css
+:root {
+  --primary: #CD1915;        /* Color principal (rojo) */
+  --secundary: #9e1311;      /* Color secundario */
+  --bg-light: #f8f9fa;       /* Fondo claro */
+  --text-dark: #333;         /* Texto oscuro */
+  --text-light: #666;        /* Texto claro */
+  --radius: 15px;            /* Radio de bordes */
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+```
+## Optimización y Performance
 
-## Solución de Problemas Comunes
+### Implementado:
+-  Lazy loading en imágenes (`loading="lazy"`)
+-  Preconnect a CDNs externos
+-  Preload de CSS crítico
+-  Defer en scripts no críticos
+-  Intersection Observer (animaciones eficientes)
+-  CSS minimizado (sin comentarios en producción)
+-  Imágenes optimizadas (WebP recomendado)
 
-### Formulario No Envía
+### Mejoras Adicionales (Opcionales):
 
-1. Verificar modo en FORM_CONFIG
-2. Revisar consola del navegador
-3. Validar endpoints configurados
+1. **Minificar CSS y JS**
+   - Usar herramientas: CSS Minifier, UglifyJS
+   - O plugins de WordPress: Autoptimize, WP Rocket
 
-### Imágenes No Cargan
+2. **Caché de WordPress**
+   - Instalar: WP Super Cache o W3 Total Cache
 
-1. Verificar rutas actualizadas
-2. Confirmar que imágenes existen en servidor
-3. Revisar permisos de archivos
-4. Verificar formato y tamaño
+
 ---
 
-## Licencia
 
-Proyecto desarrollado para La Casa del Viaje. 
+##  Licencia
 
-##contacto-desarrollador
-uzielgomezbrian@gmail.com
+Este proyecto es propiedad de **La Casa del Viaje**. Uso interno y comercial exclusivo.
+
+---
+
+##  Contacto
+
+- uzielgomezbrian@gmail.com
+
+---
+
+
+*Última actualización: 11 de noviembre de 2025*
