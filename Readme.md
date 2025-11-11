@@ -4,22 +4,6 @@ Landing page promocional para el tour "Barrancas del Cobre" de **La Casa del Via
 
 ---
 
-##  Tabla de Contenidos
-
-- [Características](#-características)
-- [Tecnologías Utilizadas](#-tecnologías-utilizadas)
-- [Estructura de Archivos](#-estructura-de-archivos)
-- [Instalación en WordPress](#-instalación-en-wordpress)
-- [Integración con Contact Form 7](#-integración-con-contact-form-7)
-- [Configuración](#-configuración)
-- [Secciones de la Página](#-secciones-de-la-página)
-- [Personalización](#-personalización)
-- [Optimización y Performance](#-optimización-y-performance)
-- [Soporte de Navegadores](#-soporte-de-navegadores)
-- [Créditos](#-créditos)
-
----
-
 ##  Características
 
 -  **Diseño  Responsive** - Optimizado para móvil, tablet y desktop
@@ -244,4 +228,4 @@ Este proyecto es propiedad de **La Casa del Viaje**. Uso interno y comercial exc
 ---
 
 
-*Última actualización: 11 de noviembre de 2025*
+*Última actualización: 11 de noviembr
