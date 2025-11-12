@@ -257,7 +257,6 @@ const init = () => {
   initModal();
   initPriceHover();
   initSmoothScroll();
-  initLazyLoading();
   initMobileMenu();
   
   console.log('Página inicializada correctamente');
