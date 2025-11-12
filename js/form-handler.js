@@ -333,7 +333,7 @@ function initFormEnhancements() {
 const DEBUG = false; // Cambiar a true para ver logs
 
 if (DEBUG) {
-    console.log('🔍 Modo debug activado');
+    console.log('Modo debug activado');
     
     // Log de formularios encontrados
     document.querySelectorAll('form').forEach((form, i) => {
