@@ -1,21 +1,17 @@
 <?php
-// ============================================
 // CONFIGURACIÓN
-// ============================================
 
 // Email donde llegarán las reservas
 $emailDestino = 'becarioslcv@lacasadelviaje.com';
 
-// Email de respuesta (opcional - email del cliente)
+// Email de respuesta (opcional)
 $emailRespaldo = ' '; // CC opcional
 
 // Activar modo debug (mostrar errores - solo en desarrollo)
 $debug = false; // Cambiar a true solo para probar
 
 
-// ============================================
 // SEGURIDAD BÁSICA
-// ============================================
 
 // Solo aceptar POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -28,15 +24,13 @@ header('Content-Type: application/json; charset=utf-8');
 
 // Protección contra bots (honeypot)
 if (isset($_POST['website']) && !empty($_POST['website'])) {
-    // Campo trampa - los bots lo llenan
+    // Campo trampa 
     http_response_code(400);
     die(json_encode(['success' => false, 'message' => 'Spam detectado']));
 }
 
 
-// ============================================
 // OBTENER Y LIMPIAR DATOS
-// ============================================
 
 function limpiarDato($dato) {
     return htmlspecialchars(strip_tags(trim($dato)), ENT_QUOTES, 'UTF-8');
@@ -48,9 +42,7 @@ $telefono = limpiarDato($_POST['telefono'] ?? '');
 $viajeros = limpiarDato($_POST['viajeros'] ?? '');
 
 
-// ============================================
 // VALIDACIÓN DE DATOS
-// ============================================
 
 $errores = [];
 
@@ -86,9 +78,7 @@ if (!empty($errores)) {
 }
 
 
-// ============================================
 // PREPARAR EMAIL HTML CON DISEÑO
-// ============================================
 
 $fecha = date('d/m/Y');
 $hora = date('H:i:s');
@@ -249,9 +239,7 @@ La Casa del Viaje - Sistema de Reservas
 TEXTO;
 
 
-// ============================================
 // CONFIGURAR HEADERS DEL EMAIL
-// ============================================
 
 $headers = [];
 $headers[] = "MIME-Version: 1.0";
@@ -261,13 +249,9 @@ $headers[] = "Reply-To: $nombre <$email>";
 $headers[] = "X-Mailer: PHP/" . phpversion();
 $headers[] = "X-Priority: 1"; // Alta prioridad
 
-// CC opcional (copia a otro email)
-// $headers[] = "Cc: $emailRespaldo";
 
 
-// ============================================
 // ENVIAR EMAIL
-// ============================================
 
 try {
     $enviado = mail($emailDestino, $asunto, $mensajeHTML, implode("\r\n", $headers));

@@ -59,29 +59,36 @@
       <div class="form-container">
         <h3><i class="fas fa-person-hiking"></i> Reserva tu Aventura</h3>
         <form id="bookingForm">
+          <!-- Campo honeypot (oculto - para detectar bots) -->
+          <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+
           <div class="form-group">
             <label><i class="fas fa-user"></i> Nombre Completo</label>
             <input type="text" required placeholder="Nombre y Apellidos" name="nombre" autocomplete="name">
           </div>
+
           <div class="form-group">
             <label><i class="fas fa-envelope"></i> Email</label>
             <input type="email" required placeholder="tu@email.com" name="email" autocomplete="email">
           </div>
+
           <div class="form-group">
             <label><i class="fas fa-phone"></i> Teléfono</label>
             <input type="tel" required placeholder="(123) 456-7890" name="telefono" autocomplete="tel">
           </div>
+
           <div class="form-group">
             <label><i class="fas fa-users"></i> Número de Viajeros</label>
             <select required name="viajeros">
               <option value="">Selecciona</option>
-              <option value="1">1 persona</option>
-              <option value="2">2 personas</option>
-              <option value="3">3 personas</option>
-              <option value="4">4 personas</option>
-              <option value="5+">5+ personas</option>
+              <option value="1 persona">1 persona</option>
+              <option value="2 personas">2 personas</option>
+              <option value="3 personas">3 personas</option>
+              <option value="4 personas">4 personas</option>
+              <option value="5+ personas">5+ personas</option>
             </select>
           </div>
+
           <button type="submit" class="btn-submit">
             <i class="fas fa-paper-plane"></i>
             Enviar Solicitud
@@ -781,6 +788,9 @@
 
       <div class="modal-body">
         <form id="modalBookingForm">
+          <!-- Campo honeypot (oculto - para detectar bots) -->
+          <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+
           <div class="form-group">
             <label for="modalNombre"><i class="fas fa-user"></i> Nombre Completo</label>
             <input type="text" id="modalNombre" name="nombre" required placeholder="Juan Pérez" autocomplete="name">
@@ -801,15 +811,15 @@
             <label for="modalViajeros"><i class="fas fa-users"></i> Número de Viajeros</label>
             <select id="modalViajeros" name="viajeros" required>
               <option value="">Selecciona</option>
-              <option value="1">1 persona</option>
-              <option value="2">2 personas</option>
-              <option value="3">3 personas</option>
-              <option value="4">4 personas</option>
-              <option value="5+">5+ personas</option>
+              <option value="1 persona">1 persona</option>
+              <option value="2 personas">2 personas</option>
+              <option value="3 personas">3 personas</option>
+              <option value="4 personas">4 personas</option>
+              <option value="5+ personas">5+ personas</option>
             </select>
           </div>
 
-          <button type="submit" class="btn-submit">
+          <button type="submit" class="btn-submit-modal">
             <i class="fas fa-paper-plane"></i>
             Enviar Solicitud
           </button>
@@ -825,13 +835,16 @@
   <!-- Scripts -->
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
 
-  <!-- 2. Configuración global (primero) -->
+  <!--  Configuración global (primero) -->
   <script src="js/config-global.js"></script>
 
-  <!-- 3. Servicio de formularios -->
+  <!--  Servicio de formularios -->
   <script src="js/form.js"></script>
 
-  <!-- 4. Funcionalidades principales -->
+  <!-- handler de formulario -->
+  <script src="js/form-handler.js"></script>
+
+  <!--  Funcionalidades principales -->
   <script src="js/main.js"></script>
 </body>
 
