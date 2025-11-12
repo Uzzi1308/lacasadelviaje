@@ -41,7 +41,7 @@ function initForm(form) {
         
         try {
             // Enviar a PHP
-            const response = await fetch('enviar-formulario.php', {
+            const response = await fetch('form.php', {
                 method: 'POST',
                 body: formData
             });

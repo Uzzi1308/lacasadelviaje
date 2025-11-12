@@ -2,7 +2,7 @@
 // CONFIGURACIÓN
 
 // Email donde llegarán las reservas
-$emailDestino = 'becarioslcv@lacasadelviaje.com';
+$emailDestino = 'info@lacasadelviaje.com';
 
 // Email de respuesta (opcional)
 $emailRespaldo = ' '; // CC opcional
