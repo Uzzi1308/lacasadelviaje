@@ -256,6 +256,11 @@ nav {
   line-height: 1.5;
 }
 
+.text-bold {
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
+
 .experience-features li::before {
   content: '·';
   position: absolute;
@@ -1003,6 +1008,7 @@ nav {
   transform: translateY(20px);
   transition: all 0.3s ease;
   z-index: 999;
+  display: none;
 }
 
 .scroll-to-top.show {
@@ -2044,8 +2050,8 @@ section {
 
 .btn-reservar-flotante {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 75%;
+  left: 30px;
   background: linear-gradient(135deg, var(--primary) 0%, var(--secundary) 100%);
   color: white;
   border: none;
@@ -2372,7 +2378,6 @@ section {
 
 @media (max-width: 768px) {
   .btn-reservar-flotante {
-    bottom: 20px;
     right: 20px;
     padding: 0.9rem 1.5rem;
     font-size: 1rem;
@@ -2421,10 +2426,10 @@ section {
 
 @media (max-width: 480px) {
   .btn-reservar-flotante {
-    bottom: 15px;
+    bottom: 80%;
     right: 15px;
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
   }
 
   .modal-header h2 {
